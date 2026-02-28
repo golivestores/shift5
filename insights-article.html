@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shift5 Partners with Anduril on Army's Next Generation Command and Control Initiative - Shift5</title>
+  <link rel="shortcut icon" href="https://shift5.io/icons/favicon.ico">
+  <link rel="stylesheet" href="styles/common.css">
+  <link rel="stylesheet" href="styles/insights.css">
+</head>
+<body>
+
+  <!-- ========== LOADER ========== -->
+  <div id="loader"></div>
+
+  <!-- ========== SVG SPRITE ========== -->
+  <svg style="display:none">
+    <symbol id="left-parenthesis" fill="none" viewBox="0 0 35 144">
+      <path fill="#202020" d="M34.36 0c-9.6 13.227-16.373 25.173-20.32 35.84C10.094 46.507 8.12 58.56 8.12 72c0 13.44 1.974 25.493 5.92 36.16 3.947 10.56 10.72 22.507 20.32 35.84h-8.64c-9.066-12.373-15.626-24.107-19.68-35.2C2.093 97.707.12 85.44.12 72c0-13.44 1.973-25.653 5.92-36.64C10.094 24.267 16.654 12.48 25.72 0h8.64Z"></path>
+    </symbol>
+    <symbol id="right-parenthesis" fill="none" viewBox="0 0 35 144">
+      <path fill="#202020" d="M8.72 0c9.067 12.48 15.573 24.267 19.52 35.36 4.053 10.987 6.08 23.2 6.08 36.64 0 13.44-2.027 25.707-6.08 36.8-3.947 11.093-10.453 22.827-19.52 35.2H.08c9.6-13.333 16.373-25.28 20.32-35.84 3.947-10.667 5.92-22.72 5.92-36.16 0-13.44-1.973-25.493-5.92-36.16C16.453 25.173 9.68 13.227.08 0h8.64Z"></path>
+    </symbol>
+    <symbol id="footer-icon" fill="none" viewBox="0 0 45 49">
+      <path fill="#FF5841" d="M43.878 24.056a.023.023 0 0 1-.001.031.023.023 0 0 0 0 .033.024.024 0 0 1 .001.034L22.236 48.242a.473.473 0 0 1-.352.156H12.45a.473.473 0 0 1-.35-.793l21.236-23.162a.473.473 0 0 0 0-.64L12.105.793A.473.473 0 0 1 12.453 0h9.432c.133 0 .26.057.35.156l21.643 23.9Z"></path>
+      <path fill="#FF5841" d="M44.067 24.056a.023.023 0 0 1 0 .032.023.023 0 0 0 0 .033c.008.009.009.023 0 .032l-21.64 24.089a.473.473 0 0 1-.353.156H12.64a.473.473 0 0 1-.35-.793l21.237-23.163a.473.473 0 0 0 0-.64L12.295.793A.473.473 0 0 1 12.643 0h9.433c.133 0 .26.057.35.156l21.641 23.9Z"></path>
+      <path fill="#FF5841" d="M.006 24.345a.024.024 0 0 1 .001-.034.023.023 0 0 0 0-.033.023.023 0 0 1 0-.032l11.022-12.268a.473.473 0 0 1 .697-.007l4.656 4.977c.169.18.17.46.003.643l-5.836 6.367a.473.473 0 0 0 0 .64l5.931 6.427c.167.181.167.46.001.641l-4.602 5.02a.473.473 0 0 1-.7-.003L.007 24.345Z"></path>
+    </symbol>
+    <symbol id="flag" fill="inherit" viewBox="0 0 40 24">
+      <path fill="inherit" d="M0 20.306h40.002v-1.848H0v1.848Zm0-3.69h40.002v-1.848H0v1.848ZM39.997 1.847V0H0v12.93h40.002v-1.847H15.997V9.236h24V7.389h-24V5.542h24V3.694h-24V1.847h24Z"></path>
+      <path fill="inherit" d="M0 24h40.002v-1.847H0V24Z"></path>
+    </symbol>
+    <symbol id="logo_w_copy" fill="inherit" viewBox="0 0 175 40">
+      <path fill="inherit" d="M36.263 19.88a.02.02 0 0 1 0 .028.02.02 0 0 0 0 .027.02.02 0 0 1 0 .028l-17.86 19.878a.48.48 0 0 1-.356.159h-7.558a.48.48 0 0 1-.353-.804l17.36-18.935a.48.48 0 0 0-.001-.65L10.142.806A.48.48 0 0 1 10.494 0h7.554a.48.48 0 0 1 .356.158L36.263 19.88Z"></path>
+      <path fill="inherit" d="M36.42 19.88a.02.02 0 0 1-.001.028.02.02 0 0 0 0 .028.02.02 0 0 1 0 .027L18.562 39.84a.48.48 0 0 1-.357.159h-7.558a.48.48 0 0 1-.353-.804l17.36-18.935a.48.48 0 0 0-.001-.65L10.298.806A.48.48 0 0 1 10.652 0h7.554a.48.48 0 0 1 .355.158L36.42 19.88Z"></path>
+      <path fill="inherit" d="M.005 20.12a.02.02 0 0 1 0-.028.02.02 0 0 0 0-.027.02.02 0 0 1 0-.028L9.05 9.97a.48.48 0 0 1 .707-.007l3.725 3.983a.48.48 0 0 1 .004.652l-4.714 5.141a.48.48 0 0 0 .001.65l4.792 5.193a.48.48 0 0 1 0 .65l-3.682 4.015a.48.48 0 0 1-.709-.002L.005 20.12Zm156.188 11.293c-6.159 0-10.048-2.83-10.297-7.061l5.164-.031c.28 1.928 2.24 3.36 5.133 3.36 3.08 0 5.164-1.712 5.164-4.263 0-2.52-1.96-4.2-4.915-4.2-1.96 0-3.764.81-4.542 2.085h-5.599l.902-12.288h18.509v3.733H151.9l-.435 5.6c1.244-1.4 3.639-2.333 6.533-2.333 5.195 0 8.554 2.924 8.554 7.403 0 4.978-3.888 7.995-10.359 7.995Zm-24.161-.622V13.495h-7.653v-4.48h20.47v4.48h-7.653V30.79h-5.164Zm-27.867 0V9.015h18.106v4.521h-12.942v3.775h8.234v4.925h-8.234v8.555h-5.164Zm-8.043 0V9.015h5.071v21.776h-5.07Zm-8.172 0v-8.555H77.755v8.555h-5.164V9.015h5.164v8.327h10.193V9.015h5.195v21.776H87.95Zm-27.893.622c-6.906 0-11.324-3.142-11.417-8.119h5.04c.124 2.769 2.55 4.23 6.502 4.23 3.172 0 5.07-.87 5.07-2.519 0-1.369-1.182-2.24-3.328-2.52l-5.32-.715c-4.2-.53-7.093-2.707-7.093-6.44 0-4.293 3.795-6.937 9.862-6.937 6.315 0 10.265 2.955 10.421 7.684h-4.977c-.125-2.551-2.271-3.858-5.538-3.858-2.924 0-4.697.902-4.697 2.551 0 1.338 1.089 2.147 3.048 2.427l4.947.622c5.506.715 7.933 3.484 7.933 6.813 0 4.293-4.045 6.781-10.453 6.781Z"></path>
+    </symbol>
+    <symbol id="arrow-left" fill="inherit" viewBox="0 0 16 12">
+      <path fill="inherit" d="M1.115 4.648 0 5.761l5.76 5.76 1.113-1.115-3.86-3.86H16V4.972H3.02l3.856-3.857L5.763.001 1.115 4.648Z"></path>
+    </symbol>
+    <symbol id="arrow-right" fill="inherit" viewBox="0 0 16 12">
+      <path fill="inherit" d="M14.885 4.648 16 5.761l-5.76 5.76-1.113-1.115 3.86-3.86H0V4.972h12.98L9.124 1.115 10.237.001l4.648 4.647Z"></path>
+    </symbol>
+  </svg>
+
+  <!-- ========== HEADER ========== -->
+  <header class="header">
+    <div class="menu-content">
+      <a href="index.html" class="logo-link" aria-label="Shift5 Home">
+        <svg><use href="#logo_w_copy"></use></svg>
+      </a>
+      <button class="burger" aria-label="Open navigation">
+        <span class="burger-lines">
+          <span class="burger-line"></span>
+          <span class="burger-line"></span>
+        </span>
+        <span class="burger-label">Menu</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ========== MAIN ========== -->
+  <main>
+
+    <!-- ===== HERO INSIGHTS BANNER ===== -->
+    <section class="heroInsights">
+      <div class="content">
+        <h1 class="insights-banner-title">S5/Insights</h1>
+      </div>
+    </section>
+
+    <!-- ===== HERO ARTICLE ===== -->
+    <section class="heroArticle" data-bg="dark">
+      <div class="content">
+        <nav class="heroArticle-breadcrumb">
+          <a href="#">Insights</a>
+          <span>/</span>
+          <span>Shift5 Partners with Anduril on Army's Next Gene...</span>
+        </nav>
+        <h2 class="heroArticle-title">Shift5 Partners with Anduril on Army's Next Generation Command and Control Initiative</h2>
+        <p class="heroArticle-date">February 23, 2026</p>
+      </div>
+    </section>
+
+    <!-- ===== ARTICLE BODY ===== -->
+    <section class="article-body">
+      <div class="rich-text">
+
+        <h2 class="article-featured">Operational Intelligence Platform Integrates with Lattice Mesh to Deliver Near Real-Time Vehicle Health Data for Enhanced Mission Readiness</h2>
+
+        <p class="article-paragraph"><strong>ARLINGTON, VA &mdash; February 23, 2026</strong> &mdash; Shift5, the Operational Intelligence platform for America's defense and transportation systems, today announced its role as a key partner in <a href="#">Anduril Industries' Next Generation Command and Control (NGC2) effort</a> for the U.S. Army.</p>
+
+        <div class="article-image">
+          <img src="https://cdn.sanity.io/images/5g80501d/production/5770ec5b1d28130f46b98ac61bf28577ca4e46a8-3600x1881.png?w=1280&fm=webp&auto=format" alt="Shift5 Anduril Partnership Announcement" loading="lazy">
+        </div>
+
+        <p class="article-paragraph">Within this initiative, Shift5's platform collects and translates vehicle health metrics from critical systems, operating agnostically across vehicle types and communication protocols. This data flows through Anduril's Lattice Mesh to situational awareness platforms and logistics applications, giving commanders real-time visibility into readiness and sustainment.</p>
+
+        <p class="article-paragraph">"NGC2 is redefining how the Army maintains decision advantage over our adversaries, at pace and at scale," <strong>said Toby Magsig, President and Interim CEO of Shift5</strong>. "Our platform was built to provide unprecedented operational insights into our nation's warfighting systems, and we're honored to work alongside Anduril Industries, other trusted partners, and the 4th Infantry Division in developing and testing this capability for the warfighter."</p>
+
+        <p class="article-paragraph">Shift5 integrated its capability into Lattice Mesh in just two months, enabling live demonstration during the <a href="#">Army's Ivy Sting 4 exercise</a> earlier this month.</p>
+
+        <p class="article-paragraph">"Shift5 brings deep expertise in vehicle telemetry," <strong>said Tom Keane, Senior Vice President at Anduril Industries</strong>. "What NGC2 does is make that data usable quickly and at the edge. At Ivy Sting 4, their vehicle health insights flowed through Anduril's Lattice Mesh and informed sustainment decisions in the field. That's exactly what we're building NGC2 to do."</p>
+
+        <p class="article-paragraph">NGC2 is the Army's initiative to modernize command and control operations by integrating cutting-edge commercial technologies into a unified ecosystem. Anduril leads one of the NGC2 prototype efforts, partnering with Palantir, Striveworks, Govini, Rune Technologies, Instant Connect Enterprise, Research Innovations, Inc., and Microsoft as part of a $99.6 million Other Transaction Authority agreement. The Anduril-led effort is currently being tested and scaled by the Army's 4th Infantry Division through a series of experimentation events called Ivy Sting.</p>
+
+        <h3 class="article-about-title">About Shift5</h3>
+
+        <p class="article-paragraph">Former military officers who stood up U.S. Army Cyber Command and pioneered modern weapons system cyber assessments founded Shift5 to transform untapped operational technology into actionable insights that enable peak performance and cyber resilience for America's defense and transportation systems. Built for the field and tested in the most demanding environments, Shift5's Operational Intelligence platform equips operations, maintenance, and cybersecurity teams with the infrastructure and analytics to detect threats, anticipate failures, and respond with confidence. Today, military customers and leading transportation companies rely on Shift5 for the safety, security, and reliability of current fleets and next-generation assets.</p>
+
+      </div>
+    </section>
+
+    <!-- ===== ADDITIONAL READING ===== -->
+    <section class="sliderCards">
+      <div class="sliderCards-header">
+        <h2 class="sliderCards-title">Additional Reading</h2>
+        <div class="sliderCards-controls">
+          <button class="slider-control slider-prev" aria-label="Previous">
+            <svg class="icon"><use href="#arrow-left"></use></svg>
+          </button>
+          <button class="slider-control slider-next" aria-label="Next">
+            <svg class="icon"><use href="#arrow-right"></use></svg>
+          </button>
+        </div>
+      </div>
+      <div class="sliderCards-track">
+
+        <a href="insights-article.html" class="sliderCards-item">
+          <div class="card-line-x"></div>
+          <div class="card-line-y"></div>
+          <h3 class="card-title">Shift5 Partners with Anduril on Army's Next Generation Command and Control Initiative</h3>
+          <p class="card-description">Operational Intelligence Platform Integrates with Lattice Mesh to Deliver Near Real-Time Vehicle Health Data for Enhanced Mission Readiness</p>
+        </a>
+
+        <a href="#" class="sliderCards-item">
+          <div class="card-line-x"></div>
+          <div class="card-line-y"></div>
+          <h3 class="card-title">Shift5 Appoints L3Harris Executive Toby Magsig as President and Interim CEO</h3>
+          <p class="card-description">Company Co-Founder Josh Lospinoso Remains Involved as Founder and Board Member</p>
+        </a>
+
+        <a href="#" class="sliderCards-item">
+          <div class="card-line-x"></div>
+          <div class="card-line-y"></div>
+          <h3 class="card-title">Near-Real-Time Data Powers Faster Fault and Threat Detection</h3>
+          <p class="card-description">Boeing and Shift5 join forces to detect faults and intrusions at mission speed.</p>
+        </a>
+
+        <a href="#" class="sliderCards-item">
+          <div class="card-line-x"></div>
+          <div class="card-line-y"></div>
+          <span class="card-tag">GPS</span>
+          <h3 class="card-title">Delivering Early-Warning for GPS Spoofing with Shift5's RF-Enabled Threat Detection</h3>
+          <p class="card-description">Shift5 built an RF-based detection method to rapidly identify early warning indicators of GPS spoofing, providing earlier visibility into navigation threats for increased awareness and safety.</p>
+        </a>
+
+        <a href="#" class="sliderCards-item">
+          <div class="card-line-x"></div>
+          <div class="card-line-y"></div>
+          <span class="card-tag">GPS</span>
+          <h3 class="card-title">Shift5 Launches Advanced RF-Enabled GPS Threat Detection</h3>
+          <p class="card-description">Next-generation capability delivers early warning of GPS threats up to 200 nautical miles away for enhanced maritime and ground force protection.</p>
+        </a>
+
+        <a href="#" class="sliderCards-item">
+          <div class="card-line-x"></div>
+          <div class="card-line-y"></div>
+          <h3 class="card-title">Shift5 Named North American Technology Innovation Leader in Onboard OT Platforms</h3>
+          <p class="card-description">Analyst firm recognizes Shift5's leadership in transforming hidden operational data into actionable insights.</p>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ===== CTA / CONTACT ===== -->
+    <section class="contact-form">
+      <div class="content">
+        <div>
+          <h2 class="form-title">
+            <span>Ready to harness your </span>
+            <span>Op</span><span class="-slash">/</span><span>Intelligence?</span>
+          </h2>
+
+          <form class="form-container" method="POST" name="Contact form">
+            <div class="email-item">
+              <div class="email-content">
+                <svg role="presentation" class="icon left-paren"><use href="#left-parenthesis"></use></svg>
+                <div class="form-item">
+                  <label for="email_contact-form">Enter your email</label>
+                  <input class="form-email" placeholder="Enter your email" id="email_contact-form" type="email" name="email_contact-form" required>
+                </div>
+                <svg role="presentation" class="icon right-paren"><use href="#right-parenthesis"></use></svg>
+              </div>
+              <button class="email-button" type="button">Continue</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="contact-info">
+          <div class="border-top"></div>
+          <p class="info-label">Get in touch<br>to learn more.</p>
+          <div class="info-block">
+            <div class="info-item">
+              <p class="info-item-label">Phone</p>
+              <p class="info-item-value">+1 703 810 3320</p>
+            </div>
+          </div>
+          <div class="info-block">
+            <div class="info-item">
+              <p class="info-item-label">General Inquiries</p>
+              <a class="info-item-value" href="mailto:info@shift5.io">info@shift5.io</a>
+            </div>
+            <div class="info-item">
+              <p class="info-item-label">Press</p>
+              <a class="info-item-value" href="mailto:press@shift5.io">press@shift5.io</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="content">
+      <div class="newsletter-form">
+        <div class="newsletter">
+          <form method="POST" name="Newsletter">
+            <label class="form-label" for="email_newsletter">Sign up for updates</label>
+            <div class="input-row">
+              <input placeholder="Enter your email address" id="email_newsletter" type="email" name="email_newsletter" required>
+              <button class="form-submit" type="button">Subscribe</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-block">
+        <div class="block-content block-1">
+          <a href="index.html" class="footer-logo">
+            <svg role="presentation" class="icon"><use href="#footer-icon"></use></svg>
+          </a>
+          <ul class="footer-nav">
+            <li class="nav-item">
+              <a href="platform.html" class="item-link"><span>Platform</span></a>
+            </li>
+          </ul>
+          <ul class="footer-nav">
+            <li class="nav-item">
+              <h4 class="submenu-title">Solutions<sup>4</sup></h4>
+              <ul class="submenu-list">
+                <li class="submenu-item"><a class="item-link" href="#"><span>Cyber</span><span class="-slash">/</span><span>EW</span></a></li>
+                <li class="submenu-item"><a class="item-link" href="#"><span>Predictive Maintenance</span></a></li>
+                <li class="submenu-item"><a class="item-link" href="#"><span>Compliance</span></a></li>
+                <li class="submenu-item"><a class="item-link" href="#"><span>Research</span></a></li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="footer-nav">
+            <li class="nav-item">
+              <h4 class="submenu-title">About<sup>2</sup></h4>
+              <ul class="submenu-list">
+                <li class="submenu-item"><a class="item-link" href="#"><span>Company</span></a></li>
+                <li class="submenu-item"><a class="item-link" href="#"><span>Careers</span></a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="item-link"><span>Insights</span></a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="item-link"><span>Contact</span></a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="block-content block-2">
+          <div class="block-item">
+            <svg role="presentation"><use href="#flag"></use></svg>
+            <p>Forged in America. For America.</p>
+          </div>
+          <div class="block-item">
+            <p>Shift5 HQ<br>1100 Wilson Blvd,<br>Ste 2100<br>Rosslyn, VA 22209</p>
+          </div>
+        </div>
+
+        <div class="footer-copy copy-1">
+          <p class="copy-item">&copy;2026 Shift5, Inc.</p>
+          <a href="#" class="copy-item">Privacy Policy</a>
+          <a href="#" class="copy-item">Terms of Use</a>
+        </div>
+
+        <div class="footer-title">
+          <svg fill="none" viewBox="0 0 1280 250" preserveAspectRatio="xMinYMin meet" style="width:100%;height:auto;display:block">
+            <path fill="#FF5841" d="M1167.55 249.898c-66.87 0-109.08-30.731-111.78-76.658l56.06-.338c3.03 20.937 24.31 36.472 55.72 36.472 33.43 0 56.05-18.574 56.05-46.265 0-27.354-21.27-45.59-53.35-45.59-21.28 0-40.86 8.78-49.31 22.626h-60.78l9.79-133.392h200.93v40.524h-149.94l-4.72 60.786c13.5-15.196 39.51-25.327 70.91-25.327 56.4 0 92.87 31.744 92.87 80.373 0 54.032-42.21 86.789-112.45 86.789Zm-262.286-6.754V55.382H822.19V6.752h222.21v48.63h-83.077v187.762h-56.059Zm-302.508 0V6.753h196.542v49.08H658.814v40.974h89.378v53.469h-89.378v92.868h-56.058Zm-87.311 0V6.753h55.045v236.391h-55.045Zm-88.724 0v-92.868H316.067v92.868h-56.058V6.753h56.058v90.391h110.654V6.753h56.396v236.391h-56.396Zm-302.785 6.755c-74.97 0-122.923-34.108-123.936-88.14h54.708c1.35 30.055 27.691 45.927 70.579 45.927 34.446 0 55.045-9.455 55.045-27.354 0-14.858-12.832-24.314-36.134-27.353l-57.747-7.768c-45.59-5.74-76.995-29.379-76.995-69.904C9.456 28.705 50.656 0 116.507 0c68.553 0 111.441 32.082 113.13 83.412h-54.032c-1.351-27.691-24.653-41.875-60.111-41.875-31.744 0-50.993 9.794-50.993 27.692 0 14.52 11.82 23.301 33.095 26.34l53.694 6.754c59.773 7.768 86.114 37.823 86.114 73.957 0 46.603-43.901 73.619-113.468 73.619Z"></path>
+          </svg>
+        </div>
+      </div>
+
+      <div class="footer-copy copy-2">
+        <p class="copy-item">&copy;2026 Shift5, Inc.</p>
+        <a href="#" class="copy-item">Privacy Policy</a>
+        <a href="#" class="copy-item">Terms of Use</a>
+        <a href="#" class="copy-item">License Agreement</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="scripts/common.js"></script>
+  <script src="scripts/insights.js"></script>
+</body>
+</html>

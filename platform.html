@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Platform - Shift5</title>
+  <link rel="shortcut icon" href="https://shift5.io/icons/favicon.ico">
+  <link rel="stylesheet" href="styles/common.css">
+  <link rel="stylesheet" href="styles/platform.css">
+</head>
+<body>
+
+  <!-- ========== LOADER ========== -->
+  <div id="loader"></div>
+
+  <!-- ========== SVG SPRITE ========== -->
+  <svg style="display:none">
+    <symbol id="globe" fill="none" stroke="inherit" viewBox="0 0 480 360">
+      <g stroke="inherit" clip-path="url(#a)">
+        <path d="m291.845 269.797-25.926-44.896-51.844-89.798c-16.041-27.783-25.923-44.898-25.919-44.9"></path>
+        <path d="M279.499 275.871c-7.685 3.166-22.316-12.18-38.381-40.258-16.065-28.078-31.121-64.624-39.499-95.871-8.378-31.247-8.805-52.446-1.118-55.613"></path>
+        <path d="M264.987 280.634c-15.585 3.869-34.749-11.735-50.272-40.936-15.523-29.2-25.049-67.562-24.987-100.634.061-33.071 9.7-55.827 25.286-59.698"></path>
+        <path d="M246.336 283.495c-22.665 1.388-44.82-17.056-58.113-48.384-13.295-31.327-15.71-70.78-6.337-103.495 9.372-32.714 29.109-53.723 51.777-55.11"></path>
+        <path d="M220.557 281.849c-27.319-5.216-48.859-29.446-56.502-63.568-7.645-34.12-.233-72.943 19.443-101.848 19.676-28.906 48.626-43.498 75.944-38.284"></path>
+        <path d="M185.451 268.181c-26.381-16.32-40.361-48.207-36.674-83.65 3.687-35.442 24.479-69.058 54.549-88.18 30.067-19.125 64.842-20.852 91.223-4.532"></path>
+        <path d="M150.203 231.844c-16.057-27.812-13.78-63.393 5.975-93.34 19.755-29.947 53.985-49.71 89.797-51.844 35.812-2.135 67.765 13.683 83.823 41.495"></path>
+        <path d="M136.359 183.15c-1.456-47.933 43.765-88.2 101.004-89.94 57.239-1.74 104.821 35.708 106.279 83.64"></path>
+        <path d="M142.075 145.914c14.133-40.607 69.435-58.261 123.517-39.436 54.082 18.825 86.468 67.003 72.333 107.608"></path>
+        <path d="M153.539 122.765c19.378-29.272 73.797-27.377 121.547 4.234 47.752 31.611 70.752 80.967 51.374 110.239"></path>
+        <path d="M165.342 108.044c17.225-17.874 64.617-.147 105.85 39.592 41.232 39.74 60.692 86.444 43.466 104.318"></path>
+        <path d="M176.723 97.857c10.18-7.841 46.762 22.577 81.709 67.943s55.023 88.501 44.843 96.342"></path>
+        <path d="M330.065 231.383c-7.496 13.142-21.853 26.507-39.284 36.572-17.432 10.064-36.183 15.813-51.314 15.735"></path>
+        <path d="M341.806 199.682c-3.912 20.242-25.528 44.364-55.003 61.382-29.475 17.017-61.174 23.676-80.659 16.942"></path>
+        <path d="M343.15 169.423c2.47 24.079-23.729 57.339-63.045 80.039-39.317 22.699-81.221 28.758-100.838 14.58"></path>
+        <path d="M336.133 141.145c10.174 25.169-18.242 65.648-65.058 92.677-46.817 27.03-96.08 31.399-112.791 10.004"></path>
+        <path d="M321.717 116.174c11.899 15.234 4.622 40.556-18.861 65.637-23.484 25.081-59.252 45.731-92.714 53.528-33.465 7.798-59.03 1.438-66.274-16.484"></path>
+        <path d="M300.735 95.958c17.185 12.42 13.422 37.715-9.492 63.81-22.912 26.095-60.329 47.698-94.384 54.493-34.055 6.796-57.842-2.593-60.007-23.684"></path>
+        <path d="M273.858 81.993c22.3 7.705 23.415 31.057 2.711 56.751-20.706 25.695-57.976 47.212-90.581 52.297-32.605 5.084-52.27-7.559-47.792-30.723"></path>
+        <path d="M240.534 76.31c27.488.142 35.944 19.168 19.242 43.298-16.703 24.131-52.717 44.923-81.964 47.322-29.248 2.399-41.497-14.436-27.876-38.313"></path>
+        <path d="M212.217 131.878c23.047-13.307 36.353-33.409 29.718-44.9-6.634-11.49-30.695-10.019-53.743 3.288-23.047 13.306-36.352 33.408-29.718 44.899 6.635 11.491 30.696 10.019 53.743-3.287Z"></path>
+        <path d="M202.55 115.134c11.869-6.853 18.72-17.206 15.303-23.124-3.417-5.919-15.808-5.161-27.677 1.691-11.869 6.852-18.72 17.205-15.303 23.124 3.417 5.918 15.808 5.161 27.677-1.691Z"></path>
+        <path d="M291.845 269.797c49.593-28.633 66.585-92.048 37.952-141.642-28.633-49.593-92.048-66.585-141.641-37.952-49.594 28.633-66.586 92.048-37.953 141.641 28.633 49.594 92.048 66.586 141.642 37.953Z"></path>
+      </g>
+      <defs><clipPath id="a"><path fill="#fff" d="M136 76h208v208H136z"></path></clipPath></defs>
+    </symbol>
+    <symbol id="left-parenthesis" fill="none" viewBox="0 0 35 144">
+      <path fill="#202020" d="M34.36 0c-9.6 13.227-16.373 25.173-20.32 35.84C10.094 46.507 8.12 58.56 8.12 72c0 13.44 1.974 25.493 5.92 36.16 3.947 10.56 10.72 22.507 20.32 35.84h-8.64c-9.066-12.373-15.626-24.107-19.68-35.2C2.093 97.707.12 85.44.12 72c0-13.44 1.973-25.653 5.92-36.64C10.094 24.267 16.654 12.48 25.72 0h8.64Z"></path>
+    </symbol>
+    <symbol id="right-parenthesis" fill="none" viewBox="0 0 35 144">
+      <path fill="#202020" d="M8.72 0c9.067 12.48 15.573 24.267 19.52 35.36 4.053 10.987 6.08 23.2 6.08 36.64 0 13.44-2.027 25.707-6.08 36.8-3.947 11.093-10.453 22.827-19.52 35.2H.08c9.6-13.333 16.373-25.28 20.32-35.84 3.947-10.667 5.92-22.72 5.92-36.16 0-13.44-1.973-25.493-5.92-36.16C16.453 25.173 9.68 13.227.08 0h8.64Z"></path>
+    </symbol>
+    <symbol id="footer-icon" fill="none" viewBox="0 0 45 49">
+      <path fill="#FF5841" d="M43.878 24.056a.023.023 0 0 1-.001.031.023.023 0 0 0 0 .033.024.024 0 0 1 .001.034L22.236 48.242a.473.473 0 0 1-.352.156H12.45a.473.473 0 0 1-.35-.793l21.236-23.162a.473.473 0 0 0 0-.64L12.105.793A.473.473 0 0 1 12.453 0h9.432c.133 0 .26.057.35.156l21.643 23.9Z"></path>
+      <path fill="#FF5841" d="M44.067 24.056a.023.023 0 0 1 0 .032.023.023 0 0 0 0 .033c.008.009.009.023 0 .032l-21.64 24.089a.473.473 0 0 1-.353.156H12.64a.473.473 0 0 1-.35-.793l21.237-23.163a.473.473 0 0 0 0-.64L12.295.793A.473.473 0 0 1 12.643 0h9.433c.133 0 .26.057.35.156l21.641 23.9Z"></path>
+      <path fill="#FF5841" d="M.006 24.345a.024.024 0 0 1 .001-.034.023.023 0 0 0 0-.033.023.023 0 0 1 0-.032l11.022-12.268a.473.473 0 0 1 .697-.007l4.656 4.977c.169.18.17.46.003.643l-5.836 6.367a.473.473 0 0 0 0 .64l5.931 6.427c.167.181.167.46.001.641l-4.602 5.02a.473.473 0 0 1-.7-.003L.007 24.345Z"></path>
+    </symbol>
+    <symbol id="flag" fill="inherit" viewBox="0 0 40 24">
+      <path fill="inherit" d="M0 20.306h40.002v-1.848H0v1.848Zm0-3.69h40.002v-1.848H0v1.848ZM39.997 1.847V0H0v12.93h40.002v-1.847H15.997V9.236h24V7.389h-24V5.542h24V3.694h-24V1.847h24Z"></path>
+      <path fill="inherit" d="M0 24h40.002v-1.847H0V24Z"></path>
+    </symbol>
+    <symbol id="logo_w_copy" fill="inherit" viewBox="0 0 175 40">
+      <path fill="inherit" d="M36.263 19.88a.02.02 0 0 1 0 .028.02.02 0 0 0 0 .027.02.02 0 0 1 0 .028l-17.86 19.878a.48.48 0 0 1-.356.159h-7.558a.48.48 0 0 1-.353-.804l17.36-18.935a.48.48 0 0 0-.001-.65L10.142.806A.48.48 0 0 1 10.494 0h7.554a.48.48 0 0 1 .356.158L36.263 19.88Z"></path>
+      <path fill="inherit" d="M36.42 19.88a.02.02 0 0 1-.001.028.02.02 0 0 0 0 .028.02.02 0 0 1 0 .027L18.562 39.84a.48.48 0 0 1-.357.159h-7.558a.48.48 0 0 1-.353-.804l17.36-18.935a.48.48 0 0 0-.001-.65L10.298.806A.48.48 0 0 1 10.652 0h7.554a.48.48 0 0 1 .355.158L36.42 19.88Z"></path>
+      <path fill="inherit" d="M.005 20.12a.02.02 0 0 1 0-.028.02.02 0 0 0 0-.027.02.02 0 0 1 0-.028L9.05 9.97a.48.48 0 0 1 .707-.007l3.725 3.983a.48.48 0 0 1 .004.652l-4.714 5.141a.48.48 0 0 0 .001.65l4.792 5.193a.48.48 0 0 1 0 .65l-3.682 4.015a.48.48 0 0 1-.709-.002L.005 20.12Zm156.188 11.293c-6.159 0-10.048-2.83-10.297-7.061l5.164-.031c.28 1.928 2.24 3.36 5.133 3.36 3.08 0 5.164-1.712 5.164-4.263 0-2.52-1.96-4.2-4.915-4.2-1.96 0-3.764.81-4.542 2.085h-5.599l.902-12.288h18.509v3.733H151.9l-.435 5.6c1.244-1.4 3.639-2.333 6.533-2.333 5.195 0 8.554 2.924 8.554 7.403 0 4.978-3.888 7.995-10.359 7.995Zm-24.161-.622V13.495h-7.653v-4.48h20.47v4.48h-7.653V30.79h-5.164Zm-27.867 0V9.015h18.106v4.521h-12.942v3.775h8.234v4.925h-8.234v8.555h-5.164Zm-8.043 0V9.015h5.071v21.776h-5.07Zm-8.172 0v-8.555H77.755v8.555h-5.164V9.015h5.164v8.327h10.193V9.015h5.195v21.776H87.95Zm-27.893.622c-6.906 0-11.324-3.142-11.417-8.119h5.04c.124 2.769 2.55 4.23 6.502 4.23 3.172 0 5.07-.87 5.07-2.519 0-1.369-1.182-2.24-3.328-2.52l-5.32-.715c-4.2-.53-7.093-2.707-7.093-6.44 0-4.293 3.795-6.937 9.862-6.937 6.315 0 10.265 2.955 10.421 7.684h-4.977c-.125-2.551-2.271-3.858-5.538-3.858-2.924 0-4.697.902-4.697 2.551 0 1.338 1.089 2.147 3.048 2.427l4.947.622c5.506.715 7.933 3.484 7.933 6.813 0 4.293-4.045 6.781-10.453 6.781Z"></path>
+    </symbol>
+    <symbol id="arrow-left" fill="inherit" viewBox="0 0 16 12">
+      <path fill="inherit" d="M1.115 4.648 0 5.761l5.76 5.76 1.113-1.115-3.86-3.86H16V4.972H3.02l3.856-3.857L5.763.001 1.115 4.648Z"></path>
+    </symbol>
+    <symbol id="arrow-right" fill="inherit" viewBox="0 0 16 12">
+      <path fill="inherit" d="M14.885 4.648 16 5.761l-5.76 5.76-1.113-1.115 3.86-3.86H0V4.972h12.98L9.124 1.115 10.237.001l4.648 4.647Z"></path>
+    </symbol>
+    <symbol id="arrow-up-right" fill="none" stroke="inherit" viewBox="0 0 100 100">
+      <line x1="15" y1="85" x2="80" y2="20" stroke-width="6" stroke-linecap="round"/>
+      <polyline points="40,20 80,20 80,60" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </symbol>
+    <symbol id="spring" stroke="inherit" fill="none" viewBox="0 0 480 360">
+      <path stroke="inherit" d="M239.571 232.5c23.042 0 43.882 2.906 58.946 7.593 7.534 2.344 13.596 5.125 17.762 8.189 4.177 3.072 6.364 6.362 6.364 9.718s-2.187 6.646-6.364 9.718c-4.166 3.064-10.228 5.845-17.762 8.189-15.064 4.687-35.904 7.593-58.946 7.593-23.041 0-43.882-2.906-58.945-7.593-7.535-2.344-13.596-5.125-17.763-8.189-4.176-3.072-6.363-6.362-6.363-9.718s2.187-6.646 6.363-9.718c4.167-3.064 10.228-5.845 17.763-8.189 15.063-4.687 35.904-7.593 58.945-7.593Z"></path>
+      <path stroke="inherit" d="M239.571 210.214c23.042 0 43.882 2.907 58.946 7.593 7.534 2.344 13.596 5.125 17.762 8.19 4.177 3.072 6.364 6.362 6.364 9.717 0 3.356-2.187 6.646-6.364 9.718-4.166 3.065-10.228 5.845-17.762 8.19-15.064 4.686-35.904 7.592-58.946 7.592-23.041 0-43.882-2.906-58.945-7.592-7.535-2.345-13.596-5.125-17.763-8.19-4.176-3.072-6.363-6.362-6.363-9.718 0-3.355 2.187-6.645 6.363-9.717 4.167-3.065 10.228-5.846 17.763-8.19 15.063-4.686 35.904-7.593 58.945-7.593Z"></path>
+      <path stroke="inherit" d="M239.571 187.928c23.042 0 43.882 2.907 58.946 7.593 7.534 2.344 13.596 5.125 17.762 8.19 4.177 3.072 6.364 6.362 6.364 9.717 0 3.356-2.187 6.646-6.364 9.718-4.166 3.065-10.228 5.846-17.762 8.19-15.064 4.686-35.904 7.592-58.946 7.592-23.041 0-43.882-2.906-58.945-7.592-7.535-2.344-13.596-5.125-17.763-8.19-4.176-3.072-6.363-6.362-6.363-9.718 0-3.355 2.187-6.645 6.363-9.717 4.167-3.065 10.228-5.846 17.763-8.19 15.063-4.686 35.904-7.593 58.945-7.593Z"></path>
+      <path stroke="inherit" d="M239.571 165.643c23.042 0 43.882 2.906 58.946 7.593 7.534 2.344 13.596 5.124 17.762 8.189 4.177 3.072 6.364 6.362 6.364 9.718s-2.187 6.645-6.364 9.718c-4.166 3.064-10.228 5.845-17.762 8.189-15.064 4.686-35.904 7.593-58.946 7.593-23.041 0-43.882-2.907-58.945-7.593-7.535-2.344-13.596-5.125-17.763-8.189-4.176-3.072-6.363-6.363-6.363-9.718 0-3.356 2.187-6.646 6.363-9.718 4.167-3.065 10.228-5.845 17.763-8.189 15.063-4.687 35.904-7.593 58.945-7.593Z"></path>
+      <path stroke="inherit" d="M239.571 143.357c23.042 0 43.882 2.907 58.946 7.593 7.534 2.344 13.596 5.125 17.762 8.189 4.177 3.073 6.364 6.362 6.364 9.718s-2.187 6.646-6.364 9.718c-4.166 3.065-10.228 5.845-17.762 8.189-15.064 4.687-35.904 7.593-58.946 7.593-23.041 0-43.882-2.906-58.945-7.593-7.535-2.344-13.596-5.124-17.763-8.189-4.176-3.072-6.363-6.362-6.363-9.718 0-3.355 2.187-6.646 6.363-9.718 4.167-3.064 10.228-5.845 17.763-8.189 15.063-4.686 35.904-7.593 58.945-7.593Z"></path>
+      <path stroke="inherit" d="M239.571 121.072c23.042 0 43.882 2.906 58.946 7.592 7.534 2.344 13.596 5.125 17.762 8.19 4.177 3.072 6.364 6.362 6.364 9.718 0 3.355-2.187 6.645-6.364 9.717-4.166 3.065-10.228 5.846-17.762 8.19-15.064 4.686-35.904 7.593-58.946 7.593-23.041 0-43.882-2.907-58.945-7.593-7.535-2.344-13.596-5.125-17.763-8.19-4.176-3.072-6.363-6.362-6.363-9.717 0-3.356 2.187-6.646 6.363-9.718 4.167-3.065 10.228-5.846 17.763-8.19 15.063-4.686 35.904-7.592 58.945-7.592Z"></path>
+      <path stroke="inherit" d="M239.571 98.786c23.042 0 43.882 2.906 58.946 7.592 7.534 2.345 13.596 5.125 17.762 8.19 4.177 3.072 6.364 6.362 6.364 9.718 0 3.355-2.187 6.645-6.364 9.717-4.166 3.065-10.228 5.846-17.762 8.19-15.064 4.686-35.904 7.593-58.946 7.593-23.041 0-43.882-2.907-58.945-7.593-7.535-2.344-13.596-5.125-17.763-8.19-4.176-3.072-6.363-6.362-6.363-9.717 0-3.356 2.187-6.646 6.363-9.718 4.167-3.065 10.228-5.845 17.763-8.19 15.063-4.686 35.904-7.592 58.945-7.592Z"></path>
+      <path stroke="inherit" d="M239.571 76.5c23.042 0 43.882 2.906 58.946 7.593 7.534 2.344 13.596 5.124 17.762 8.19 4.177 3.071 6.364 6.361 6.364 9.717 0 3.356-2.187 6.646-6.364 9.718-4.166 3.064-10.228 5.845-17.762 8.189-15.064 4.687-35.904 7.593-58.946 7.593-23.041 0-43.882-2.906-58.945-7.593-7.535-2.344-13.596-5.125-17.763-8.189-4.176-3.072-6.363-6.362-6.363-9.718s2.187-6.646 6.363-9.718c4.167-3.064 10.228-5.845 17.763-8.19 15.063-4.686 35.904-7.592 58.945-7.592Z"></path>
+    </symbol>
+    <symbol id="cube" fill="none" stroke="inherit" viewBox="0 0 480 360">
+      <path stroke="inherit" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.3" d="m312.724 110.01-24.292-13.95-48.504 27.98-48.504-27.98-24.212 13.95 72.716 42.01 72.796-42.01ZM143 180.08v27.98l24.212 13.95v27.98l24.212 14.03v-55.96L143 180.08Z"></path>
+      <path stroke="inherit" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.3" d="m336.936 124.04-24.212-14.03-72.796 42.01-72.716-42.01L143 124.04 239.928 180l97.008-55.96ZM143 208.06v27.98l24.212 13.95v-27.98L143 208.06Z"></path>
+      <path stroke="inherit" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.3" d="M288.432 96.06 264.22 82.03l-24.292 14.03-24.212-14.03-24.292 14.03 48.504 27.98 48.504-27.98ZM143 152.02v28.06l48.424 27.98v55.96l24.292 14.03v-84.02L143 152.02Z"></path>
+      <path stroke="inherit" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.3" d="M264.22 82.03 239.928 68l-24.212 14.03 24.212 14.03 24.292-14.03Zm0 196.02 24.292-14.03-.08-55.96 48.504-27.98v-28.06l-72.796 42.01.08 84.02Z"></path>
+      <path stroke="inherit" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.3" d="M239.927 180v112l24.292-13.95-.08-84.02 72.796-42.01v-27.98L239.927 180Z"></path>
+      <path stroke="inherit" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.3" d="M239.928 180 143 124.04v27.98l72.716 42.01v84.02L239.928 292V180Zm-.001 0v112-112Zm72.797 69.99 24.211-13.95v-27.98l-24.211 13.95v27.98Z"></path>
+      <path stroke="inherit" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.3" d="m288.512 264.02 24.212-14.03v-27.98l24.212-13.95v-27.98l-48.504 27.98.08 55.96Z"></path>
+    </symbol>
+    <symbol id="arrows" stroke="inherit" fill="none" viewBox="0 0 480 360">
+      <path stroke="inherit" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M323.199 244.006V148.1l-83.063-47.994-83.064 47.994v95.906L240.136 292l83.063-47.994Z"></path>
+      <path stroke="inherit" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M289.036 224.331v-56.473l-48.9-28.237-48.9 28.237v56.473l48.9 28.154 48.9-28.154Zm-48.9 27.989V77.055"></path>
+      <path fill="inherit" d="M246.475 78.949 240.136 68l-6.339 10.949h12.678Z"></path>
+      <path stroke="inherit" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m289.036 167.858-152.215 87.92"></path>
+      <path fill="inherit" d="M135.256 249.357 129 260.306h12.595l-6.339-10.949Z"></path>
+      <path stroke="inherit" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m191.236 167.858 151.968 87.92"></path>
+      <path fill="inherit" d="M338.429 260.306h12.596l-6.257-10.949-6.339 10.949Z"></path>
+    </symbol>
+    <symbol id="eyes" fill="none" stroke="inherit" viewBox="0 0 480 360">
+      <path stroke="inherit" stroke-linecap="round" stroke-linejoin="round" d="M131.377 164.013c-9.193 9.192-9.193 24.183 0 33.375l-33.588 33.588c-27.719-27.719-27.719-72.691 0-100.409l33.588 33.587m33.304-.07c-9.192-9.193-24.183-9.193-33.375 0m33.375 0c9.193 9.192 9.193 24.183 0 33.375m0-33.375 33.588-33.588m-33.588 66.963c-9.192 9.192-24.183 9.192-33.375 0m33.375 0 33.588 33.587c-27.719 27.719-72.691 27.719-100.41 0m100.41-100.55c27.718 27.718 27.718 72.69 0 100.409m0-100.409c-27.719-27.719-72.691-27.719-100.41 0m250.6 66.185c-9.193 9.193-24.183 9.193-33.376 0l-33.517 33.517c-25.88-25.88-27.577-66.892-5.02-94.823m71.913 61.306c9.192-9.192 9.192-24.183-.001-33.375l33.517-33.517c-27.718-27.719-72.69-27.719-100.409 0m66.893 66.892 33.587 33.588m-66.892-66.892c9.192-9.193 24.183-9.193 33.375 0m-33.375 0c-9.193 9.192-9.193 24.183 0 33.375m0-33.375-33.588-33.588m100.48 100.48c27.718-27.719 27.718-72.691 0-100.41m0 100.41c-27.719 27.718-72.691 27.718-100.409 0m-.071-100.48c-1.838 1.838-3.535 3.677-5.02 5.586m0 0-69.509 84.924"></path>
+    </symbol>
+    <symbol id="cosmos" fill="inherit" stroke="none" viewBox="0 0 480 360">
+      <path fill="inherit" d="M336.712 179.356h-31.617c-7.01 0-13.305-.287-19.028-.716 6.581-7.875 12.733-15.749 18.456-23.623 42.204-60.704 21.316-81.607-39.057-38.943-8.155 5.87-16.167 12.027-24.035 18.613a270.95 270.95 0 0 1-.716-19.901V82h-1.287v32.786c0 7.015-.286 13.315-.716 18.898-16.166-13.458-33.477-25.054-51.36-33.788-8.441-3.436-22.175-9.735-30.187-2.863-6.867 8.017-.715 21.619 2.861 30.209 9.156 18.469 20.745 35.649 33.907 51.398-5.723.429-12.018.573-19.028.716H142v1.288h32.905c7.01 0 13.305.287 19.028.716-13.305 15.749-24.751 32.929-33.907 51.398-3.433 8.447-9.728 22.192-2.861 30.209 8.012 6.872 21.746.716 30.187-2.863 17.883-8.734 35.194-20.474 51.36-33.788.43 5.583.573 11.883.716 18.898V278h1.287v-32.786c0-7.445.286-14.031.716-19.901 7.868 6.443 15.88 12.599 24.035 18.613 60.66 42.951 81.118 21.475 39.057-38.943-5.723-7.874-11.875-15.892-18.456-23.623 5.723-.429 12.018-.573 19.028-.716H338v-1.288h-1.288Zm-84.694-11.454c-5.866-5.87-8.728-14.746-10.158-27.632 13.305 11.74 25.895 24.482 37.626 37.797-12.733-1.431-21.603-4.295-27.468-10.165Zm-24.179 0c-5.865 5.87-14.878 8.734-27.754 10.165 12.017-13.601 24.607-26.486 38.055-38.656-1.43 13.172-4.292 22.335-10.301 28.348v.143Zm0 24.196c6.009 6.013 8.871 15.176 10.301 28.348-13.448-12.17-26.038-25.055-38.055-38.656 12.876 1.431 21.889 4.295 27.754 10.165v.143Zm24.179 0c5.865-5.87 14.735-8.733 27.468-10.165-11.731 13.315-24.321 26.057-37.626 37.797 1.43-12.886 4.292-21.762 10.158-27.632Zm55.795-96.64c13.305-2.863 19.314 3.436 16.167 16.465-4.006 15.176-12.876 28.634-21.746 41.519a386.995 386.995 0 0 1-19.171 24.339c-12.59-14.747-26.467-28.777-41.489-41.52 18.455-16.035 42.347-34.933 66.096-40.803h.143Zm-150.648 1.718c13.019-10.738 44.923 11.74 56.368 20.044a414.034 414.034 0 0 1 24.607 19.901c-14.879 12.455-29.042 26.056-41.775 40.803-13.591-15.892-26.61-32.356-36.053-51.112-3.719-8.017-10.014-21.905-3.29-29.636h.143Zm0 165.648c-6.581-7.731-.429-21.619 3.291-29.636 9.442-18.756 22.461-35.22 36.052-51.112 12.733 14.746 26.753 28.348 41.775 40.803-8.011 6.873-16.166 13.602-24.607 19.901-11.302 8.161-43.492 30.782-56.368 20.044h-.143Zm166.958-14.747c3.147 13.315-3.148 19.328-16.167 16.465-15.308-3.579-29.042-12.456-41.918-21.476-8.441-6.013-16.453-12.599-24.321-19.328 14.879-12.742 28.899-26.772 41.489-41.519a386.706 386.706 0 0 1 19.171 24.339c8.87 12.885 17.74 26.2 21.746 41.519Z"></path>
+    </symbol>
+    <symbol id="galaxy" fill="inherit" viewBox="0 0 480 360">
+      <path fill="inherit" d="M182.558 257.448a9.072 9.072 0 0 0 9.071-9.072 9.07 9.07 0 0 0-9.071-9.071 9.072 9.072 0 1 0 0 18.143Zm-1.689-25.26a7.257 7.257 0 1 0-14.406-1.768 7.257 7.257 0 0 0 14.406 1.768Zm-11.346-14.103a5.441 5.441 0 0 1-5.443-5.443 5.428 5.428 0 0 1 5.443-5.443 5.428 5.428 0 0 1 5.442 5.443 5.428 5.428 0 0 1-5.442 5.443Zm.907-20.943a3.62 3.62 0 0 1-3.629-3.629 3.62 3.62 0 0 1 3.629-3.629 3.62 3.62 0 0 1 3.629 3.629 3.62 3.62 0 0 1-3.629 3.629Zm5.916-20.057a1.814 1.814 0 1 0 0-3.628 1.814 1.814 0 0 0 0 3.628Zm-6.686-46.265a9.072 9.072 0 1 0 0-18.142 9.072 9.072 0 0 0 0 18.142Zm24.121-16.788a7.257 7.257 0 1 0-14.328-2.32 7.257 7.257 0 0 0 14.328 2.32Zm11.594.124a5.441 5.441 0 0 1-5.443-5.443 5.428 5.428 0 0 1 5.443-5.442 5.428 5.428 0 0 1 5.443 5.442 5.428 5.428 0 0 1-5.443 5.443Zm19.149-.907a3.619 3.619 0 0 1-3.628-3.628 3.619 3.619 0 0 1 3.628-3.629 3.62 3.62 0 0 1 3.629 3.629 3.619 3.619 0 0 1-3.629 3.628Zm18.222 4.102a1.809 1.809 0 0 1-1.814-1.814c0-1.006.808-1.814 1.814-1.814s1.814.808 1.814 1.814a1.809 1.809 0 0 1-1.814 1.814Zm53.542.572a9.07 9.07 0 0 0 9.071-9.071 9.072 9.072 0 1 0-9.071 9.071Zm15.879 10.219a7.259 7.259 0 0 0-4.692-9.129 7.257 7.257 0 0 0-9.128 4.692 7.257 7.257 0 1 0 13.82 4.437Zm2.406 16.556a5.443 5.443 0 1 0-10.88-.379 5.443 5.443 0 0 0 10.88.379Zm-6.157 22.645a3.619 3.619 0 0 1-3.628-3.628 3.619 3.619 0 0 1 3.628-3.629 3.62 3.62 0 0 1 3.629 3.629 3.619 3.619 0 0 1-3.629 3.628Zm-5.936 16.408a1.814 1.814 0 1 0 0-3.628 1.814 1.814 0 0 0 0 3.628Zm6.705 60.799a9.072 9.072 0 1 0-9.071-9.071 9.07 9.07 0 0 0 9.071 9.071Zm-16.173 6.811a7.257 7.257 0 0 0-1.442-14.443 7.258 7.258 0 0 0 1.442 14.443Zm-19.541 2.596a5.443 5.443 0 1 0 0-10.886 5.443 5.443 0 0 0 0 10.886Zm-19.149-2.721a3.62 3.62 0 0 1-3.629-3.629 3.619 3.619 0 0 1 3.629-3.628 3.619 3.619 0 0 1 3.629 3.628 3.62 3.62 0 0 1-3.629 3.629Zm-18.242-7.751a1.81 1.81 0 0 1-1.814-1.814 1.81 1.81 0 0 1 1.814-1.814 1.81 1.81 0 0 1 1.815 1.814 1.81 1.81 0 0 1-1.815 1.814Zm45.575-16.111a1.81 1.81 0 0 1-1.815-1.815 1.81 1.81 0 0 1 1.815-1.814 1.81 1.81 0 0 1 1.814 1.814 1.81 1.81 0 0 1-1.814 1.815Zm17.078-6.883a3.62 3.62 0 0 1-3.629-3.629 3.62 3.62 0 0 1 3.629-3.628 3.619 3.619 0 0 1 3.629 3.628 3.62 3.62 0 0 1-3.629 3.629Zm14.179-11.083a5.442 5.442 0 0 1-5.443-5.443 5.43 5.43 0 0 1 5.443-5.443 5.43 5.43 0 0 1 5.443 5.443 5.43 5.43 0 0 1-5.443 5.443Zm10.275-14.377a7.263 7.263 0 0 1-7.257-7.257 7.263 7.263 0 0 1 7.257-7.257 7.263 7.263 0 0 1 7.257 7.257 7.263 7.263 0 0 1-7.257 7.257Zm12.203-19.139a9.07 9.07 0 0 0 0-12.829 9.07 9.07 0 0 0-12.829 0 9.07 9.07 0 0 0 0 12.829 9.07 9.07 0 0 0 12.829 0Zm-49.021-37.696a1.814 1.814 0 1 0 0-3.628 1.814 1.814 0 0 0 0 3.628Zm-8.698-15.283a3.63 3.63 0 1 0 0-7.259 3.63 3.63 0 0 0 0 7.259Zm-12.897-12.365a5.441 5.441 0 0 1-5.443-5.443 5.429 5.429 0 0 1 5.443-5.443 5.429 5.429 0 0 1 5.443 5.443 5.43 5.43 0 0 1-5.443 5.443Zm-9.073-14.558a7.259 7.259 0 0 0-14.328-2.321 7.257 7.257 0 1 0 14.328 2.32Zm-25.399 2.153a9.072 9.072 0 1 0-9.072-9.071 9.072 9.072 0 0 0 9.072 9.071Zm-33.111 35.32a1.81 1.81 0 0 1-1.815-1.814 1.81 1.81 0 0 1 1.815-1.814c1.006 0 1.814.808 1.814 1.814a1.809 1.809 0 0 1-1.814 1.814Zm-17.098 10.531a3.619 3.619 0 0 1-3.629-3.628 3.62 3.62 0 0 1 3.629-3.629 3.62 3.62 0 0 1 3.629 3.629 3.619 3.619 0 0 1-3.629 3.628Zm-14.18 14.712a5.442 5.442 0 0 1-5.443-5.443 5.43 5.43 0 0 1 5.443-5.443 5.43 5.43 0 0 1 5.443 5.443 5.43 5.43 0 0 1-5.443 5.443Zm-3.09 11.264a7.257 7.257 0 1 0-14.466-1.188 7.257 7.257 0 0 0 14.466 1.188Zm-4.08 19.9a9.07 9.07 0 0 0-6.741-10.915 9.07 9.07 0 0 0-10.915 6.741 9.071 9.071 0 0 0 6.741 10.915 9.07 9.07 0 0 0 10.915-6.741Zm35.498 31.146a1.814 1.814 0 1 0-3.6-.441 1.814 1.814 0 0 0 3.6.441Zm6.934 20.537a3.62 3.62 0 0 1-3.629-3.629 3.619 3.619 0 0 1 3.629-3.628 3.619 3.619 0 0 1 3.628 3.628 3.619 3.619 0 0 1-3.628 3.629Zm12.897 15.993a5.44 5.44 0 0 1-5.443-5.443 5.43 5.43 0 0 1 5.443-5.443 5.43 5.43 0 0 1 5.443 5.443 5.428 5.428 0 0 1-5.443 5.443Zm16.677 12.173a7.258 7.258 0 1 0-1.189-14.467 7.258 7.258 0 0 0 1.189 14.467Zm21.268 6.81a9.072 9.072 0 1 0-6.944-16.763 9.072 9.072 0 0 0 6.944 16.763Z"></path>
+    </symbol>
+  </svg>
+
+  <!-- ========== HEADER ========== -->
+  <header class="header">
+    <div class="menu-content">
+      <a href="index.html" class="logo-link" aria-label="Shift5 Home">
+        <svg><use href="#logo_w_copy"></use></svg>
+      </a>
+      <button class="burger" aria-label="Open navigation">
+        <span class="burger-lines">
+          <span class="burger-line"></span>
+          <span class="burger-line"></span>
+        </span>
+        <span class="burger-label">Menu</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ========== MAIN ========== -->
+  <main>
+
+    <!-- ===== HERO ===== -->
+    <section class="heroPlatform">
+      <div class="hero-left">
+        <p class="hero-static">Powered and protected by<br>Operational Intelligence.</p>
+        <h1 class="hero-tagline">
+          <span class="hero-tagline-static">Every</span>
+          <span class="hero-rotating" id="heroRotating">
+            <span class="rotate-word is-active">Vehicle.</span>
+            <span class="rotate-word">Fleet.</span>
+            <span class="rotate-word">Mission.</span>
+          </span>
+        </h1>
+      </div>
+      <div class="hero-right">
+        <div class="hero-icon">
+          <svg role="presentation"><use href="#globe"></use></svg>
+        </div>
+        <h2 class="hero-card-title">Mission-First Mindset,<br>Relentless Innovation,<br>Data-Driven Precision</h2>
+        <p class="hero-card-desc">We're not just protecting today's systems that defend nations and power economies &mdash; we're building the digital operating system for tomorrow's fleets.</p>
+      </div>
+    </section>
+
+    <!-- ===== STATEMENT BANNER ===== -->
+    <section class="statement-banner" data-bg="dark">
+      <div class="statement-line"></div>
+      <p class="statement-text">Built for the field and tested in the most demanding environments, our technology equips operations, maintenance, and cybersecurity teams with the infrastructure and analytics to detect threats, anticipate failures, and respond with confidence.</p>
+    </section>
+
+    <!-- ===== KEY FEATURES ===== -->
+    <section class="key-features" data-bg="dark">
+      <div class="features-header">
+        <h2 class="features-title">Key Features<br>of the S5 Platform.</h2>
+        <div class="features-controls">
+          <button class="features-control features-prev" aria-label="Previous">
+            <svg role="presentation" class="icon"><use href="#arrow-left"></use></svg>
+          </button>
+          <button class="features-control features-next" aria-label="Next">
+            <svg role="presentation" class="icon"><use href="#arrow-right"></use></svg>
+          </button>
+        </div>
+      </div>
+      <div class="features-slider">
+        <div class="features-track">
+
+          <div class="feature-card">
+            <div class="feature-card-lines">
+              <div class="feature-line-x"></div>
+              <div class="feature-line-x"></div>
+              <div class="feature-line-y"></div>
+            </div>
+            <div class="feature-card-content">
+              <div class="feature-icon">
+                <svg role="presentation" class="icon"><use href="#spring"></use></svg>
+              </div>
+              <h3 class="feature-title">Passive Intake</h3>
+              <p class="feature-desc">Ensure no interference with your platform's operations with our passive, one-way data capture.</p>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-card-lines">
+              <div class="feature-line-x"></div>
+              <div class="feature-line-x"></div>
+              <div class="feature-line-y"></div>
+            </div>
+            <div class="feature-card-content">
+              <div class="feature-icon">
+                <svg role="presentation" class="icon"><use href="#globe"></use></svg>
+              </div>
+              <h3 class="feature-title">SWaP</h3>
+              <p class="feature-desc">Utilize our compact, high-capacity data collection devices designed to take up minimal space.</p>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-card-lines">
+              <div class="feature-line-x"></div>
+              <div class="feature-line-x"></div>
+              <div class="feature-line-y"></div>
+            </div>
+            <div class="feature-card-content">
+              <div class="feature-icon">
+                <svg role="presentation" class="icon"><use href="#cube"></use></svg>
+              </div>
+              <h3 class="feature-title">Full Data Capture</h3>
+              <p class="feature-desc">Access all of your onboard data for full, comprehensive visibility.</p>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-card-lines">
+              <div class="feature-line-x"></div>
+              <div class="feature-line-x"></div>
+              <div class="feature-line-y"></div>
+            </div>
+            <div class="feature-card-content">
+              <div class="feature-icon">
+                <svg role="presentation" class="icon"><use href="#arrows"></use></svg>
+              </div>
+              <h3 class="feature-title">Easy Integration</h3>
+              <p class="feature-desc">Integrate with 3rd party tools to share insights, perform deeper forensics.</p>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-card-lines">
+              <div class="feature-line-x"></div>
+              <div class="feature-line-x"></div>
+              <div class="feature-line-y"></div>
+            </div>
+            <div class="feature-card-content">
+              <div class="feature-icon">
+                <svg role="presentation" class="icon"><use href="#eyes"></use></svg>
+              </div>
+              <h3 class="feature-title">Near Real-Time Alerting</h3>
+              <p class="feature-desc">Gain near real-time alerting for immediate awareness and action.</p>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-card-lines">
+              <div class="feature-line-x"></div>
+              <div class="feature-line-x"></div>
+              <div class="feature-line-y"></div>
+            </div>
+            <div class="feature-card-content">
+              <div class="feature-icon">
+                <svg role="presentation" class="icon"><use href="#cosmos"></use></svg>
+              </div>
+              <h3 class="feature-title">Data Ownership</h3>
+              <p class="feature-desc">Maintain full ownership and access to all of your data.</p>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-card-lines">
+              <div class="feature-line-x"></div>
+              <div class="feature-line-x"></div>
+              <div class="feature-line-y"></div>
+            </div>
+            <div class="feature-card-content">
+              <div class="feature-icon">
+                <svg role="presentation" class="icon"><use href="#galaxy"></use></svg>
+              </div>
+              <h3 class="feature-title">Platform Agnostic</h3>
+              <p class="feature-desc">Operate seamlessly across various platforms and unify insights.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== HOW IT WORKS ===== -->
+    <section class="how-it-works" data-bg="dark">
+      <div class="hiw-content">
+        <!-- Left column: info -->
+        <div class="hiw-block">
+          <div class="hiw-header">
+            <h2 class="hiw-title">How it works.</h2>
+            <div class="hiw-logo">
+              <svg role="presentation" class="icon"><use href="#logo_w_copy"></use></svg>
+            </div>
+            <p class="hiw-counter">
+              <span class="hiw-counter-current">00</span>
+              <span class="hiw-counter-sep">/</span><span>05</span>
+            </p>
+            <p class="hiw-description"><span class="hiw-spacer">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>The Shift5 platform collects, processes, and analyzes data from your platform to deliver full visibility into cyber threats and maintenance issues &ndash; from the edge to the operations center.</p>
+          </div>
+          <div class="hiw-footer">
+            <div class="hiw-binary">
+              <div class="hiw-binary-line">01111110 10010001 01111000</div>
+              <div class="hiw-binary-line">01010100 10110001 10100001</div>
+              <div class="hiw-binary-line">10011000 10000000 01101111</div>
+              <div class="hiw-binary-line">11101001 01010111 10110110</div>
+              <div class="hiw-binary-line">01000011 10000001 01010100</div>
+              <div class="hiw-binary-line">11010011 10000001 01101000</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Center: concentric circles chart -->
+        <div class="hiw-chart">
+          <div class="hiw-rings">
+            <div class="hiw-ring ring-0" data-ring="0">
+              <span class="ring-title">Data Capture</span>
+            </div>
+            <div class="hiw-ring ring-1" data-ring="1">
+              <span class="ring-title">Threat Detection</span>
+            </div>
+            <div class="hiw-ring ring-2" data-ring="2">
+              <span class="ring-title">Post-Mission Investigation</span>
+            </div>
+            <div class="hiw-ring ring-3" data-ring="3">
+              <span class="ring-title">Fleet-Wide View</span>
+            </div>
+            <div class="hiw-ring ring-4" data-ring="4">
+              <span class="ring-title">Ongoing Updates</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right column: active step label -->
+        <div class="hiw-labels">
+          <div class="hiw-label" data-label="0">
+            <div class="hiw-label-title">Data Capture</div>
+            <p class="hiw-label-desc">Shift5 hardware connects directly into a platform's serial bus networks to capture mission data during live operations.</p>
+          </div>
+          <div class="hiw-label" data-label="1">
+            <div class="hiw-label-title">Threat Detection</div>
+            <p class="hiw-label-desc">Near real-time anomaly detection alerts operators and ground crews to emerging cyber threats or maintenance risks for immediate awareness and action.</p>
+          </div>
+          <div class="hiw-label" data-label="2">
+            <div class="hiw-label-title">Post-Mission Investigation</div>
+            <p class="hiw-label-desc">Post-mission data access equips cyber and maintenance groups with insights for forensic investigation to optimize future platform performance.</p>
+          </div>
+          <div class="hiw-label" data-label="3">
+            <div class="hiw-label-title">Fleet-Wide View</div>
+            <p class="hiw-label-desc">A unified dashboard provides commanders with full visibility into the status of their fleet to inform operational readiness.</p>
+          </div>
+          <div class="hiw-label" data-label="4">
+            <div class="hiw-label-title">Ongoing Updates</div>
+            <p class="hiw-label-desc">Shift5 software is continually updated with new detections and capabilities to provide added value over time.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PRODUCTS / HARDWARE ===== -->
+    <section class="products-section" data-bg="dark">
+      <div class="products-content">
+        <!-- Left column: images + tabs + vertical title -->
+        <div class="products-block">
+          <!-- Tab controls -->
+          <div class="products-controls">
+            <button class="product-tab is-active" data-tab="0"><span class="tab-dot"></span>Manifold 4</button>
+            <button class="product-tab" data-tab="1">Manifold 10</button>
+            <button class="product-tab" data-tab="2">Bus Interface Card</button>
+          </div>
+
+          <!-- Stacked product images -->
+          <div class="products-images">
+            <a href="https://cdn.sanity.io/files/5g80501d/production/bcc53256b8204e75040c7c30c741204bdc33a7cd.pdf" target="_blank" class="product-asset is-active" data-product="0">
+              <div class="asset-bg">
+                <svg role="presentation" class="asset-arrow"><use href="#arrow-up-right"></use></svg>
+                <span class="asset-label">Manifold 4</span>
+              </div>
+              <figure class="asset-figure">
+                <img src="https://cdn.sanity.io/images/5g80501d/production/7e0e373b932b083d6e0665834e9114db35de27c5-1080x640.png?w=800&fm=webp&auto=format" alt="Manifold 4" loading="lazy">
+              </figure>
+            </a>
+            <a href="https://cdn.sanity.io/files/5g80501d/production/15ab3e4ade407cdfcf5677e216f0b56a066c2fd7.pdf" target="_blank" class="product-asset" data-product="1">
+              <div class="asset-bg">
+                <svg role="presentation" class="asset-arrow"><use href="#arrow-up-right"></use></svg>
+                <span class="asset-label">Manifold 10</span>
+              </div>
+              <figure class="asset-figure">
+                <img src="https://cdn.sanity.io/images/5g80501d/production/943e6b528d0c40c84341f8e7e27673c618fe3e5c-1080x640.png?w=800&fm=webp&auto=format" alt="Manifold 10" loading="lazy">
+              </figure>
+            </a>
+            <a href="https://cdn.sanity.io/files/5g80501d/production/9d757011f57daac3352f3255fc573701c6b978b8.pdf" target="_blank" class="product-asset" data-product="2">
+              <div class="asset-bg">
+                <svg role="presentation" class="asset-arrow"><use href="#arrow-up-right"></use></svg>
+                <span class="asset-label">Shift5 BIC</span>
+              </div>
+              <figure class="asset-figure">
+                <img src="https://cdn.sanity.io/images/5g80501d/production/92fe9f2417680ae94e683e14f8fe2e72c950683f-1080x640.png?w=800&fm=webp&auto=format" alt="Bus Interface Card" loading="lazy">
+              </figure>
+            </a>
+          </div>
+
+          <!-- Large vertical rotated product name -->
+          <div class="products-rotated-title">
+            <h2 class="rotated-name is-active" data-product="0">Manifold 4</h2>
+            <h2 class="rotated-name" data-product="1">Manifold 10</h2>
+            <h2 class="rotated-name" data-product="2">Shift5 BIC</h2>
+          </div>
+        </div>
+
+        <!-- Right column: description + CTA -->
+        <div class="products-aside">
+          <div class="aside-description">
+            <p class="aside-desc-text is-active" data-product="0">Manifold 4 is a small and lightweight data collection device that easily slots into all air, ground, and maritime platforms. The Manifold 4 ingests data from up to 4 different serial bus protocols simultaneously with at-rest encryption for bolstered security. Additional capabilities include near real-time alert streaming for platform operators and ground control stations and a ruggedized design to survive harsh environmental conditions.</p>
+            <p class="aside-desc-text" data-product="1">Manifold 10 is a variant of the Manifold 4 designed for commercial aviation to manage higher data capacity. The Manifold 10 ingests data for up to 110 channels for a variety of serial bus protocols, including ARINC 429, ARINC 717, ARINC 664, and gigabit ethernet.</p>
+            <p class="aside-desc-text" data-product="2">The Bus Interface Card (BIC) inserts into Manifold 4 and Manifold 10 devices to enable full data capture across all serial bus protocols. The BIC is custom designed to deliver full visibility into serial bus activity down to the physical layer to uncover anomalies in bus traffic and indicators of hardwire degradation. The BIC supports data capture on up to 12 channels for a variety of serial bus protocols, including CAN, MIL-STD-1553, and ARINC 429.</p>
+          </div>
+          <div class="aside-cta">
+            <a href="https://cdn.sanity.io/files/5g80501d/production/bcc53256b8204e75040c7c30c741204bdc33a7cd.pdf" target="_blank" class="aside-cta-link is-active" data-product="0">
+              <svg role="presentation" class="cta-arrow"><use href="#arrow-up-right"></use></svg>
+              <span class="cta-label">Empower your mission with critical insights.</span>
+            </a>
+            <a href="https://cdn.sanity.io/files/5g80501d/production/15ab3e4ade407cdfcf5677e216f0b56a066c2fd7.pdf" target="_blank" class="aside-cta-link" data-product="1">
+              <svg role="presentation" class="cta-arrow"><use href="#arrow-up-right"></use></svg>
+              <span class="cta-label">Maximize your data collection capabilities.</span>
+            </a>
+            <a href="https://cdn.sanity.io/files/5g80501d/production/9d757011f57daac3352f3255fc573701c6b978b8.pdf" target="_blank" class="aside-cta-link" data-product="2">
+              <svg role="presentation" class="cta-arrow"><use href="#arrow-up-right"></use></svg>
+              <span class="cta-label">Navigate complexity with confidence.</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== RESOURCES ===== -->
+    <section class="resources-section" data-bg="dark">
+      <div class="resources-content">
+        <div class="resources-top-line"></div>
+        <h2 class="resources-title">Resources</h2>
+        <div class="resources-list">
+
+          <a href="#" class="resource-item">
+            <div class="resource-text">
+              <h3 class="resource-item-title">Shift5 Announces AS9100 Certification</h3>
+              <p class="resource-item-desc">An internationally recognized standard for quality management designed for the aerospace, defense, and aviation industries</p>
+            </div>
+            <div class="resource-image">
+              <img src="https://cdn.sanity.io/images/5g80501d/production/510a5cd224c590decdd99ec81dd0ca4352c7519e-2560x1696.jpg?w=960&fm=webp&auto=format" alt="Shift5 AS9100 Certification" loading="lazy">
+            </div>
+          </a>
+
+          <a href="#" class="resource-item">
+            <div class="resource-line"></div>
+            <div class="resource-text">
+              <h3 class="resource-item-title">Shift5 Introduces Breakthrough Multi-Protocol Bus Interface Card (BIC) for Modern and Legacy Transportation and Defense Platforms</h3>
+              <p class="resource-item-desc">Instant Data Capture, Device Fingerprinting, and First-of-Its-Kind Malformed Message Detection and Capture Enable Unmatched Diagnostic Capabilities for Cybersecurity and Maintenance Teams</p>
+            </div>
+            <div class="resource-image">
+              <img src="https://cdn.sanity.io/images/5g80501d/production/e912346fbd3f2b64730fec495079ea357427fa4c-2880x1760.jpg?w=960&fm=webp&auto=format" alt="Shift5 Bus Interface Card" loading="lazy">
+            </div>
+          </a>
+
+          <a href="#" class="resource-item">
+            <div class="resource-line"></div>
+            <div class="resource-text">
+              <h3 class="resource-item-title">Shift5 Announces Manifold 10 for Defense and Commercial Aircraft</h3>
+              <p class="resource-item-desc">Progress Toward FAA Certification to Equip Operators and Maintainers of Bombardier and Boeing Aircraft with Real-Time Insights Derived from Onboard Serial Data</p>
+            </div>
+            <div class="resource-image">
+              <img src="https://cdn.sanity.io/images/5g80501d/production/43e7f3fece28e7dcf13a67092c6be2ab61ede03b-1920x1080.jpg?w=960&fm=webp&auto=format" alt="Shift5 Manifold 10" loading="lazy">
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CTA / CONTACT ===== -->
+    <section class="contact-form">
+      <div class="content">
+        <div>
+          <h2 class="form-title">
+            <span>Ready to harness your </span>
+            <span>Op</span><span class="-slash">/</span><span>Intelligence?</span>
+          </h2>
+
+          <form class="form-container" method="POST" name="Contact form">
+            <div class="email-item">
+              <div class="email-content">
+                <svg role="presentation" class="icon left-paren"><use href="#left-parenthesis"></use></svg>
+                <div class="form-item">
+                  <label for="email_contact-form">Enter your email</label>
+                  <input class="form-email" placeholder="Enter your email" id="email_contact-form" type="email" name="email_contact-form" required>
+                </div>
+                <svg role="presentation" class="icon right-paren"><use href="#right-parenthesis"></use></svg>
+              </div>
+              <button class="email-button" type="button">Continue</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="contact-info">
+          <div class="border-top"></div>
+          <p class="info-label">Get in touch<br>to learn more.</p>
+          <div class="info-block">
+            <div class="info-item">
+              <p class="info-item-label">Phone</p>
+              <p class="info-item-value">+1 703 810 3320</p>
+            </div>
+          </div>
+          <div class="info-block">
+            <div class="info-item">
+              <p class="info-item-label">General Inquiries</p>
+              <a class="info-item-value" href="mailto:info@shift5.io">info@shift5.io</a>
+            </div>
+            <div class="info-item">
+              <p class="info-item-label">Press</p>
+              <a class="info-item-value" href="mailto:press@shift5.io">press@shift5.io</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="content">
+      <div class="newsletter-form">
+        <div class="newsletter">
+          <form method="POST" name="Newsletter">
+            <label class="form-label" for="email_newsletter">Sign up for updates</label>
+            <div class="input-row">
+              <input placeholder="Enter your email address" id="email_newsletter" type="email" name="email_newsletter" required>
+              <button class="form-submit" type="button">Subscribe</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-block">
+        <div class="block-content block-1">
+          <a href="index.html" class="footer-logo">
+            <svg role="presentation" class="icon"><use href="#footer-icon"></use></svg>
+          </a>
+          <ul class="footer-nav">
+            <li class="nav-item">
+              <a href="platform.html" class="item-link"><span>Platform</span></a>
+            </li>
+          </ul>
+          <ul class="footer-nav">
+            <li class="nav-item">
+              <h4 class="submenu-title">Solutions<sup>4</sup></h4>
+              <ul class="submenu-list">
+                <li class="submenu-item"><a class="item-link" href="#"><span>Cyber</span><span class="-slash">/</span><span>EW</span></a></li>
+                <li class="submenu-item"><a class="item-link" href="#"><span>Predictive Maintenance</span></a></li>
+                <li class="submenu-item"><a class="item-link" href="#"><span>Compliance</span></a></li>
+                <li class="submenu-item"><a class="item-link" href="#"><span>Research</span></a></li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="footer-nav">
+            <li class="nav-item">
+              <h4 class="submenu-title">About<sup>2</sup></h4>
+              <ul class="submenu-list">
+                <li class="submenu-item"><a class="item-link" href="#"><span>Company</span></a></li>
+                <li class="submenu-item"><a class="item-link" href="#"><span>Careers</span></a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="item-link"><span>Insights</span></a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="item-link"><span>Contact</span></a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="block-content block-2">
+          <div class="block-item">
+            <svg role="presentation"><use href="#flag"></use></svg>
+            <p>Forged in America. For America.</p>
+          </div>
+          <div class="block-item">
+            <p>Shift5 HQ<br>1100 Wilson Blvd,<br>Ste 2100<br>Rosslyn, VA 22209</p>
+          </div>
+        </div>
+
+        <div class="footer-copy copy-1">
+          <p class="copy-item">&copy;2026 Shift5, Inc.</p>
+          <a href="#" class="copy-item">Privacy Policy</a>
+          <a href="#" class="copy-item">Terms of Use</a>
+        </div>
+
+        <div class="footer-title">
+          <svg fill="none" viewBox="0 0 1280 250" preserveAspectRatio="xMinYMin meet" style="width:100%;height:auto;display:block">
+            <path fill="#FF5841" d="M1167.55 249.898c-66.87 0-109.08-30.731-111.78-76.658l56.06-.338c3.03 20.937 24.31 36.472 55.72 36.472 33.43 0 56.05-18.574 56.05-46.265 0-27.354-21.27-45.59-53.35-45.59-21.28 0-40.86 8.78-49.31 22.626h-60.78l9.79-133.392h200.93v40.524h-149.94l-4.72 60.786c13.5-15.196 39.51-25.327 70.91-25.327 56.4 0 92.87 31.744 92.87 80.373 0 54.032-42.21 86.789-112.45 86.789Zm-262.286-6.754V55.382H822.19V6.752h222.21v48.63h-83.077v187.762h-56.059Zm-302.508 0V6.753h196.542v49.08H658.814v40.974h89.378v53.469h-89.378v92.868h-56.058Zm-87.311 0V6.753h55.045v236.391h-55.045Zm-88.724 0v-92.868H316.067v92.868h-56.058V6.753h56.058v90.391h110.654V6.753h56.396v236.391h-56.396Zm-302.785 6.755c-74.97 0-122.923-34.108-123.936-88.14h54.708c1.35 30.055 27.691 45.927 70.579 45.927 34.446 0 55.045-9.455 55.045-27.354 0-14.858-12.832-24.314-36.134-27.353l-57.747-7.768c-45.59-5.74-76.995-29.379-76.995-69.904C9.456 28.705 50.656 0 116.507 0c68.553 0 111.441 32.082 113.13 83.412h-54.032c-1.351-27.691-24.653-41.875-60.111-41.875-31.744 0-50.993 9.794-50.993 27.692 0 14.52 11.82 23.301 33.095 26.34l53.694 6.754c59.773 7.768 86.114 37.823 86.114 73.957 0 46.603-43.901 73.619-113.468 73.619Z"></path>
+          </svg>
+        </div>
+      </div>
+
+      <div class="footer-copy copy-2">
+        <p class="copy-item">&copy;2026 Shift5, Inc.</p>
+        <a href="#" class="copy-item">Privacy Policy</a>
+        <a href="#" class="copy-item">Terms of Use</a>
+        <a href="#" class="copy-item">License Agreement</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="scripts/common.js"></script>
+  <script src="scripts/platform.js"></script>
+</body>
+</html>

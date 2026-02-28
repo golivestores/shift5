@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Op / 阿祖AI出海 - Shift5</title>
+  <link rel="shortcut icon" href="https://shift5.io/icons/favicon.ico">
+  <link rel="stylesheet" href="styles/common.css">
+  <link rel="stylesheet" href="styles/home.css">
+</head>
+<body>
+
+  <!-- ========== LOADER ========== -->
+  <div id="loader"></div>
+
+  <!-- ========== SVG SPRITE ========== -->
+  <svg style="display:none">
+    <symbol id="globe" fill="none" stroke="inherit" viewBox="0 0 480 360">
+      <g stroke="inherit" clip-path="url(#a)">
+        <path d="m291.845 269.797-25.926-44.896-51.844-89.798c-16.041-27.783-25.923-44.898-25.919-44.9"></path>
+        <path d="M279.499 275.871c-7.685 3.166-22.316-12.18-38.381-40.258-16.065-28.078-31.121-64.624-39.499-95.871-8.378-31.247-8.805-52.446-1.118-55.613"></path>
+        <path d="M264.987 280.634c-15.585 3.869-34.749-11.735-50.272-40.936-15.523-29.2-25.049-67.562-24.987-100.634.061-33.071 9.7-55.827 25.286-59.698"></path>
+        <path d="M246.336 283.495c-22.665 1.388-44.82-17.056-58.113-48.384-13.295-31.327-15.71-70.78-6.337-103.495 9.372-32.714 29.109-53.723 51.777-55.11"></path>
+        <path d="M220.557 281.849c-27.319-5.216-48.859-29.446-56.502-63.568-7.645-34.12-.233-72.943 19.443-101.848 19.676-28.906 48.626-43.498 75.944-38.284"></path>
+        <path d="M185.451 268.181c-26.381-16.32-40.361-48.207-36.674-83.65 3.687-35.442 24.479-69.058 54.549-88.18 30.067-19.125 64.842-20.852 91.223-4.532"></path>
+        <path d="M150.203 231.844c-16.057-27.812-13.78-63.393 5.975-93.34 19.755-29.947 53.985-49.71 89.797-51.844 35.812-2.135 67.765 13.683 83.823 41.495"></path>
+        <path d="M136.359 183.15c-1.456-47.933 43.765-88.2 101.004-89.94 57.239-1.74 104.821 35.708 106.279 83.64"></path>
+        <path d="M142.075 145.914c14.133-40.607 69.435-58.261 123.517-39.436 54.082 18.825 86.468 67.003 72.333 107.608"></path>
+        <path d="M153.539 122.765c19.378-29.272 73.797-27.377 121.547 4.234 47.752 31.611 70.752 80.967 51.374 110.239"></path>
+        <path d="M165.342 108.044c17.225-17.874 64.617-.147 105.85 39.592 41.232 39.74 60.692 86.444 43.466 104.318"></path>
+        <path d="M176.723 97.857c10.18-7.841 46.762 22.577 81.709 67.943s55.023 88.501 44.843 96.342"></path>
+        <path d="M330.065 231.383c-7.496 13.142-21.853 26.507-39.284 36.572-17.432 10.064-36.183 15.813-51.314 15.735"></path>
+        <path d="M341.806 199.682c-3.912 20.242-25.528 44.364-55.003 61.382-29.475 17.017-61.174 23.676-80.659 16.942"></path>
+        <path d="M343.15 169.423c2.47 24.079-23.729 57.339-63.045 80.039-39.317 22.699-81.221 28.758-100.838 14.58"></path>
+        <path d="M336.133 141.145c10.174 25.169-18.242 65.648-65.058 92.677-46.817 27.03-96.08 31.399-112.791 10.004"></path>
+        <path d="M321.717 116.174c11.899 15.234 4.622 40.556-18.861 65.637-23.484 25.081-59.252 45.731-92.714 53.528-33.465 7.798-59.03 1.438-66.274-16.484"></path>
+        <path d="M300.735 95.958c17.185 12.42 13.422 37.715-9.492 63.81-22.912 26.095-60.329 47.698-94.384 54.493-34.055 6.796-57.842-2.593-60.007-23.684"></path>
+        <path d="M273.858 81.993c22.3 7.705 23.415 31.057 2.711 56.751-20.706 25.695-57.976 47.212-90.581 52.297-32.605 5.084-52.27-7.559-47.792-30.723"></path>
+        <path d="M240.534 76.31c27.488.142 35.944 19.168 19.242 43.298-16.703 24.131-52.717 44.923-81.964 47.322-29.248 2.399-41.497-14.436-27.876-38.313"></path>
+        <path d="M212.217 131.878c23.047-13.307 36.353-33.409 29.718-44.9-6.634-11.49-30.695-10.019-53.743 3.288-23.047 13.306-36.352 33.408-29.718 44.899 6.635 11.491 30.696 10.019 53.743-3.287Z"></path>
+        <path d="M202.55 115.134c11.869-6.853 18.72-17.206 15.303-23.124-3.417-5.919-15.808-5.161-27.677 1.691-11.869 6.852-18.72 17.205-15.303 23.124 3.417 5.918 15.808 5.161 27.677-1.691Z"></path>
+        <path d="M291.845 269.797c49.593-28.633 66.585-92.048 37.952-141.642-28.633-49.593-92.048-66.585-141.641-37.952-49.594 28.633-66.586 92.048-37.953 141.641 28.633 49.594 92.048 66.586 141.642 37.953Z"></path>
+      </g>
+      <defs><clipPath id="a"><path fill="#fff" d="M136 76h208v208H136z"></path></clipPath></defs>
+    </symbol>
+    <symbol id="default" fill="inherit" viewBox="0 0 480 360">
+      <path fill="inherit" d="m240.498 176.175 28.005-104.489.483.13.483.13-28.005 104.513 54.102-93.704.866.5-54.104 93.705 76.514-76.509.707.707-76.511 76.507 93.707-54.097.5.866-93.709 54.097 104.519-28.001.129.484.129.483-104.519 28.001H352v1H243.798l104.515 28.005-.129.483-.129.483-104.518-28.005 93.708 54.102-.5.866-93.71-54.104 76.514 76.514-.707.707-76.514-76.514 54.104 93.71-.866.5-54.102-93.708 28.005 104.518-.483.129-.483.129-28.005-104.515V292h-1V183.794l-28.005 104.519-.483-.129-.484-.129 28.005-104.518-54.101 93.708-.866-.5 54.101-93.708-76.507 76.512-.707-.707 76.507-76.512-93.703 54.102-.5-.866 93.703-54.102-104.512 28.005-.13-.483-.129-.483 104.507-28.005H128v-1h108.201l-104.514-28.001.259-.967 104.51 28-93.701-54.096.5-.866 93.701 54.095-76.505-76.505.707-.707 76.508 76.508-54.102-93.704.866-.5 54.102 93.706-28.006-104.515.967-.26 28.005 104.518V68h1v108.175Z"></path>
+    </symbol>
+    <symbol id="triangle" fill="none" stroke="inherit" viewBox="0 0 480 360">
+      <path stroke="inherit" stroke-linecap="round" stroke-linejoin="round" d="m240.088 214.66-60.044 34.67 60.044 34.661 60.044-34.661-60.044-34.67Zm.001 0 60.045 34.67V180l-60.045-34.67v69.33Z"></path>
+      <path stroke="inherit" stroke-linecap="round" stroke-linejoin="round" d="M240.089 145.33 300.134 180v-.009L240.089 76v69.33ZM300.132 180v-.009.009ZM120 283.999l.009-.008-.009.008ZM300.132 180v69.33l60.045 34.669L300.132 180Z"></path>
+      <path stroke="inherit" stroke-linecap="round" stroke-linejoin="round" d="m300.134 249.33-60.045 34.661.009.008h120.08l-60.044-34.669Zm-120.09 0V180l-60.035 103.99 60.035-34.66Zm60.045 34.669h.009l-.009-.008v.008Zm-60.045-34.669 60.044-34.67v-69.33L180.044 180v69.33Zm60.044-104V76l-60.044 104 60.044-34.67Z"></path>
+      <path stroke="inherit" stroke-linecap="round" stroke-linejoin="round" d="m180.044 249.33-60.035 34.661-.009.008h120.089v-.008l-60.045-34.661Z"></path>
+    </symbol>
+    <symbol id="left-parenthesis" fill="none" viewBox="0 0 35 144">
+      <path fill="#202020" d="M34.36 0c-9.6 13.227-16.373 25.173-20.32 35.84C10.094 46.507 8.12 58.56 8.12 72c0 13.44 1.974 25.493 5.92 36.16 3.947 10.56 10.72 22.507 20.32 35.84h-8.64c-9.066-12.373-15.626-24.107-19.68-35.2C2.093 97.707.12 85.44.12 72c0-13.44 1.973-25.653 5.92-36.64C10.094 24.267 16.654 12.48 25.72 0h8.64Z"></path>
+    </symbol>
+    <symbol id="right-parenthesis" fill="none" viewBox="0 0 35 144">
+      <path fill="#202020" d="M8.72 0c9.067 12.48 15.573 24.267 19.52 35.36 4.053 10.987 6.08 23.2 6.08 36.64 0 13.44-2.027 25.707-6.08 36.8-3.947 11.093-10.453 22.827-19.52 35.2H.08c9.6-13.333 16.373-25.28 20.32-35.84 3.947-10.667 5.92-22.72 5.92-36.16 0-13.44-1.973-25.493-5.92-36.16C16.453 25.173 9.68 13.227.08 0h8.64Z"></path>
+    </symbol>
+    <symbol id="footer-icon" fill="none" viewBox="0 0 45 49">
+      <path fill="#FF5841" d="M43.878 24.056a.023.023 0 0 1-.001.031.023.023 0 0 0 0 .033.024.024 0 0 1 .001.034L22.236 48.242a.473.473 0 0 1-.352.156H12.45a.473.473 0 0 1-.35-.793l21.236-23.162a.473.473 0 0 0 0-.64L12.105.793A.473.473 0 0 1 12.453 0h9.432c.133 0 .26.057.35.156l21.643 23.9Z"></path>
+      <path fill="#FF5841" d="M44.067 24.056a.023.023 0 0 1 0 .032.023.023 0 0 0 0 .033c.008.009.009.023 0 .032l-21.64 24.089a.473.473 0 0 1-.353.156H12.64a.473.473 0 0 1-.35-.793l21.237-23.163a.473.473 0 0 0 0-.64L12.295.793A.473.473 0 0 1 12.643 0h9.433c.133 0 .26.057.35.156l21.641 23.9Z"></path>
+      <path fill="#FF5841" d="M.006 24.345a.024.024 0 0 1 .001-.034.023.023 0 0 0 0-.033.023.023 0 0 1 0-.032l11.022-12.268a.473.473 0 0 1 .697-.007l4.656 4.977c.169.18.17.46.003.643l-5.836 6.367a.473.473 0 0 0 0 .64l5.931 6.427c.167.181.167.46.001.641l-4.602 5.02a.473.473 0 0 1-.7-.003L.007 24.345Z"></path>
+    </symbol>
+    <symbol id="flag" fill="inherit" viewBox="0 0 40 24">
+      <path fill="inherit" d="M0 20.306h40.002v-1.848H0v1.848Zm0-3.69h40.002v-1.848H0v1.848ZM39.997 1.847V0H0v12.93h40.002v-1.847H15.997V9.236h24V7.389h-24V5.542h24V3.694h-24V1.847h24Z"></path>
+      <path fill="inherit" d="M0 24h40.002v-1.847H0V24Z"></path>
+    </symbol>
+    <symbol id="arrow" fill="inherit" viewBox="0 0 109 109">
+      <path fill="inherit" d="M.72 93.765 73.523 20.96H15.145V.596l78.913-.17 14.425 14.426v79.082H88.118l-.17-58.548-72.803 72.804L.72 93.765Z"></path>
+    </symbol>
+    <symbol id="logo_w_copy" fill="inherit" viewBox="0 0 175 40">
+      <path fill="inherit" d="M36.263 19.88a.02.02 0 0 1 0 .028.02.02 0 0 0 0 .027.02.02 0 0 1 0 .028l-17.86 19.878a.48.48 0 0 1-.356.159h-7.558a.48.48 0 0 1-.353-.804l17.36-18.935a.48.48 0 0 0-.001-.65L10.142.806A.48.48 0 0 1 10.494 0h7.554a.48.48 0 0 1 .356.158L36.263 19.88Z"></path>
+      <path fill="inherit" d="M36.42 19.88a.02.02 0 0 1-.001.028.02.02 0 0 0 0 .028.02.02 0 0 1 0 .027L18.562 39.84a.48.48 0 0 1-.357.159h-7.558a.48.48 0 0 1-.353-.804l17.36-18.935a.48.48 0 0 0-.001-.65L10.298.806A.48.48 0 0 1 10.652 0h7.554a.48.48 0 0 1 .355.158L36.42 19.88Z"></path>
+      <path fill="inherit" d="M.005 20.12a.02.02 0 0 1 0-.028.02.02 0 0 0 0-.027.02.02 0 0 1 0-.028L9.05 9.97a.48.48 0 0 1 .707-.007l3.725 3.983a.48.48 0 0 1 .004.652l-4.714 5.141a.48.48 0 0 0 .001.65l4.792 5.193a.48.48 0 0 1 0 .65l-3.682 4.015a.48.48 0 0 1-.709-.002L.005 20.12Zm156.188 11.293c-6.159 0-10.048-2.83-10.297-7.061l5.164-.031c.28 1.928 2.24 3.36 5.133 3.36 3.08 0 5.164-1.712 5.164-4.263 0-2.52-1.96-4.2-4.915-4.2-1.96 0-3.764.81-4.542 2.085h-5.599l.902-12.288h18.509v3.733H151.9l-.435 5.6c1.244-1.4 3.639-2.333 6.533-2.333 5.195 0 8.554 2.924 8.554 7.403 0 4.978-3.888 7.995-10.359 7.995Zm-24.161-.622V13.495h-7.653v-4.48h20.47v4.48h-7.653V30.79h-5.164Zm-27.867 0V9.015h18.106v4.521h-12.942v3.775h8.234v4.925h-8.234v8.555h-5.164Zm-8.043 0V9.015h5.071v21.776h-5.07Zm-8.172 0v-8.555H77.755v8.555h-5.164V9.015h5.164v8.327h10.193V9.015h5.195v21.776H87.95Zm-27.893.622c-6.906 0-11.324-3.142-11.417-8.119h5.04c.124 2.769 2.55 4.23 6.502 4.23 3.172 0 5.07-.87 5.07-2.519 0-1.369-1.182-2.24-3.328-2.52l-5.32-.715c-4.2-.53-7.093-2.707-7.093-6.44 0-4.293 3.795-6.937 9.862-6.937 6.315 0 10.265 2.955 10.421 7.684h-4.977c-.125-2.551-2.271-3.858-5.538-3.858-2.924 0-4.697.902-4.697 2.551 0 1.338 1.089 2.147 3.048 2.427l4.947.622c5.506.715 7.933 3.484 7.933 6.813 0 4.293-4.045 6.781-10.453 6.781Z"></path>
+    </symbol>
+  </svg>
+
+  <!-- ========== HEADER ========== -->
+  <header class="header">
+    <div class="menu-content">
+      <a href="index.html" class="logo-link" aria-label="Shift5 Home">
+        <svg><use href="#logo_w_copy"></use></svg>
+      </a>
+      <button class="burger" aria-label="Open navigation">
+        <span class="burger-lines">
+          <span class="burger-line"></span>
+          <span class="burger-line"></span>
+        </span>
+        <span class="burger-label">Menu</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ========== MAIN ========== -->
+  <main>
+    <section class="heroHome">
+      <div class="content">
+
+        <!-- LEFT COLUMN -->
+        <div class="hero-block">
+          <div class="block-item">
+            <div class="block-item-bg"></div>
+
+            <p class="hero-description">
+              Operational Intelligence for Every Vehicle, Every Fleet, Every Mission.
+            </p>
+
+            <h1 class="hero-title">
+              <span class="line"><span class="line-inner"><span>Op</span><span class="-slash">/</span></span></span>
+              <span class="line"><span class="line-inner"><span>阿祖Ai出海</span></span></span>
+            </h1>
+          </div>
+
+          <!-- Video -->
+          <div class="hero-video">
+            <video
+              muted
+              loop
+              autoplay
+              playsinline
+              poster="https://shift5.io/images/poster.jpg"
+              src="https://player.vimeo.com/progressive_redirect/playback/1115346282/rendition/1080p/file.mp4?loc=external&log_user=0&signature=81b5307af8ed08f6cac540d1081ccf840bd349e00b8ce781a55859a5913a3a57"
+            ></video>
+          </div>
+
+          <!-- NEWS ITEMS (inside left column, scrolls with it) -->
+          <div class="hero-news">
+            <a class="news-item" href="#">
+              <div class="news-item__lines">
+                <div class="news-item__line" data-line="x"></div>
+                <div class="news-item__line" data-line="x"></div>
+                <div class="news-item__line" data-line="y"></div>
+              </div>
+              <h2 class="news-title">
+                Shift5 Launches Advanced RF-Enabled GPS Threat Detection
+              </h2>
+              <p class="news-description">
+                Next-generation capability delivers early warning of GPS threats up to 200 nautical miles away with plug-and-play deployment
+              </p>
+            </a>
+            <a class="news-item" href="#">
+              <div class="news-item__lines">
+                <div class="news-item__line" data-line="x"></div>
+                <div class="news-item__line" data-line="x"></div>
+                <div class="news-item__line" data-line="y"></div>
+              </div>
+              <h2 class="news-title">
+                Shift5 Named North American Technology Innovation Leader in Onboard OT Platforms
+              </h2>
+              <p class="news-description">
+                Analyst firm recognizes Shift5's leadership in transforming hidden operational data into actionable insights
+              </p>
+            </a>
+            <a class="news-item" href="#">
+              <div class="news-item__lines">
+                <div class="news-item__line" data-line="x"></div>
+                <div class="news-item__line" data-line="x"></div>
+              </div>
+              <h2 class="news-title">
+                Shift5 Achieves NIAP Certification for Full Encryption
+              </h2>
+              <p class="news-description">
+                First and only provider in its class to receive certification for devices capable of handling classified data at rest
+              </p>
+            </a>
+          </div>
+        </div>
+
+        <!-- RIGHT ASIDE (sticky) -->
+        <div class="hero-aside">
+          <div class="aside-block">
+            <p class="aside-label">
+              Powering actionable insights for America's defense and transportation systems.
+            </p>
+          </div>
+
+          <div class="aside-stats">
+            <p class="stats-title">System Status</p>
+
+            <ul class="stats-list">
+              <li class="stats-item">01. GPS<div class="dot"></div></li>
+              <li class="stats-item">02. Radar<div class="dot"></div></li>
+              <li class="stats-item">03. Engines<div class="dot"></div></li>
+              <li class="stats-item">04. Electrical<div class="dot"></div></li>
+              <li class="stats-item">05. Fuel<div class="dot"></div></li>
+              <li class="stats-item">06. Electronic Warfare<div class="dot"></div></li>
+              <li class="stats-item">07. Countermeasures<div class="dot"></div></li>
+              <li class="stats-item">08. Environmental<div class="dot"></div></li>
+              <li class="stats-item">09. Communications<div class="dot"></div></li>
+              <li class="stats-item">10. Flight Data Links<div class="dot"></div></li>
+            </ul>
+
+            <div class="stats-block">
+              <div class="graph-asset">
+                <div class="binary-content">
+                  <svg class="binary-side" fill="none" viewBox="0 0 8 187">
+                    <path class="graph-bar" fill="#8B8B8B" d="M0 6h5v120H0z" style="mix-blend-mode:difference"></path>
+                    <path stroke="#8B8B8B" stroke-miterlimit="10" d="M7.5 3.116v182.891"></path>
+                    <path fill="#8B8B8B" d="M8 184H0v3h8v-3ZM8 0H0v3h8V0Z"></path>
+                  </svg>
+                  <div class="asset-binary" id="binaryDisplay">
+                    <div class="binary-item">11010110</div>
+                    <div class="binary-item">00110010</div>
+                    <div class="binary-item">10010000</div>
+                    <div class="binary-item">10000001</div>
+                    <div class="binary-item">00001011</div>
+                    <div class="binary-item">01111100</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="aside-explore">
+            <div class="explore-icon">
+              <svg><use href="#arrow"></use></svg>
+            </div>
+            <a href="platform.html" class="explore-link">Explore the platform</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SOLUTIONS SECTION ========== -->
+    <section class="pullupSlider">
+      <div class="content">
+        <div class="pullupSlider-header">
+          <h2 class="pullupSlider-title">Operational Intelligence Solutions</h2>
+        </div>
+
+        <div class="pullupSlider-block">
+          <!-- Card 1: Cyber / EW -->
+          <a class="pullupSlider-item" href="#">
+            <div class="pullupSlider-item__lines">
+              <div class="pullupSlider-item__line"></div>
+              <div class="pullupSlider-item__line"></div>
+              <div class="pullupSlider-item__line"></div>
+            </div>
+            <div class="item-content">
+              <div class="item-icon">
+                <svg role="presentation" class="icon"><use href="#globe"></use></svg>
+              </div>
+              <h3 class="item-title">Cyber / EW</h3>
+              <p class="item-description">
+                Analyze serial bus traffic and radio frequency (RF) data to flag threats in near real-time, empowering operators to take decisive action and avoid mission compromise.
+              </p>
+              <span class="item-button">Explore</span>
+            </div>
+          </a>
+
+          <!-- Card 2: Predictive Maintenance -->
+          <a class="pullupSlider-item" href="#">
+            <div class="pullupSlider-item__lines">
+              <div class="pullupSlider-item__line"></div>
+              <div class="pullupSlider-item__line"></div>
+              <div class="pullupSlider-item__line"></div>
+            </div>
+            <div class="item-content">
+              <div class="item-icon">
+                <img src="dots.svg" alt="Predictive Maintenance" style="width:100%;height:100%;object-fit:contain;">
+              </div>
+              <h3 class="item-title">Predictive Maintenance</h3>
+              <p class="item-description">
+                Transform serial bus data into proactive maintenance insights to keep operators safe and fleets mission-ready.
+              </p>
+              <span class="item-button">Explore</span>
+            </div>
+          </a>
+
+          <!-- Card 3: Fleet Compliance -->
+          <a class="pullupSlider-item" href="#">
+            <div class="pullupSlider-item__lines">
+              <div class="pullupSlider-item__line"></div>
+              <div class="pullupSlider-item__line"></div>
+              <div class="pullupSlider-item__line"></div>
+              <div class="pullupSlider-item__line"></div>
+            </div>
+            <div class="item-content">
+              <div class="item-icon">
+                <svg role="presentation" class="icon"><use href="#default"></use></svg>
+              </div>
+              <h3 class="item-title">Fleet Compliance</h3>
+              <p class="item-description">
+                Process security log files from commercial aircraft to rapidly identify security incidents and verify compliance with aviation regulations.
+              </p>
+              <span class="item-button">Explore</span>
+            </div>
+          </a>
+
+          <!-- Card 4: Research -->
+          <a class="pullupSlider-item" href="#">
+            <div class="pullupSlider-item__lines">
+              <div class="pullupSlider-item__line"></div>
+              <div class="pullupSlider-item__line"></div>
+              <div class="pullupSlider-item__line"></div>
+              <div class="pullupSlider-item__line"></div>
+            </div>
+            <div class="item-content">
+              <div class="item-icon">
+                <svg role="presentation" class="icon"><use href="#triangle"></use></svg>
+              </div>
+              <h3 class="item-title">Research</h3>
+              <p class="item-description">
+                Secure your most critical assets against advanced persistent threats through expert-led security assessments, novel research, and specialized tooling.
+              </p>
+              <span class="item-button">Explore</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== INSIGHTS SECTION ========== -->
+    <section class="insightsBlock">
+      <div class="insights-content">
+        <!-- Featured Article (left) -->
+        <div class="sticky-panel">
+          <div class="panel-insight">
+            <div class="insight-image">
+              <img
+                src="https://cdn.sanity.io/images/5g80501d/production/45152eb983cc4ebfa97b960f422cc865ad871bd8-2160x1931.jpg?w=1440&fm=webp&auto=format"
+                alt="F-16 Fighting Falcon"
+                loading="lazy"
+              >
+            </div>
+            <div class="insight-content">
+              <h2 class="insight-title">
+                Shift5 Awarded Key Contract for AF's Fighter of Choice, the F-16 Fighting Falcon
+              </h2>
+              <p class="insight-date">December 4, 2025</p>
+              <p class="insight-description">
+                Company selected to develop next-generation upgrades for U.S. Air Force F-16 fleet
+              </p>
+              <a href="#" class="insight-button">
+                Read More
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Articles Grid (right) -->
+        <div class="sticky-articles">
+          <a href="#" class="insight-item">
+            <div class="item-lines">
+              <div class="item-line" data-line="x"></div>
+              <div class="item-line" data-line="y"></div>
+            </div>
+            <div class="item-content">
+              <h2 class="item-title">Shift5 Appoints L3Harris Executive Toby Magsig as President and Interim CEO</h2>
+              <p class="item-date">January 26, 2026</p>
+              <p class="item-description">Company Co-Founder Josh Lospinoso Remains Involved as Founder and Board Member</p>
+            </div>
+          </a>
+
+          <a href="#" class="insight-item">
+            <div class="item-lines">
+              <div class="item-line" data-line="x"></div>
+              <div class="item-line" data-line="y"></div>
+            </div>
+            <div class="item-content">
+              <h2 class="item-title">Near-Real-Time Data Powers Faster Fault and Threat Detection</h2>
+              <p class="item-date">January 21, 2026</p>
+              <p class="item-description">Boeing and Shift5 join forces to detect faults and intrusions at mission speed.</p>
+            </div>
+          </a>
+
+          <a href="#" class="insight-item">
+            <div class="item-lines">
+              <div class="item-line" data-line="x"></div>
+              <div class="item-line" data-line="y"></div>
+            </div>
+            <div class="item-content">
+              <h2 class="item-title">Delivering Early-Warning for GPS Spoofing with Shift5's RF-Enabled Threat Detection</h2>
+              <p class="item-date">January 16, 2026</p>
+              <p class="item-description">Shift5 built an RF-based detection method to rapidly identify early warning indicators of GPS spoofing, providing earlier visibility into navigation threats for increased awareness and safety.</p>
+            </div>
+          </a>
+
+          <a href="#" class="insight-item">
+            <div class="item-lines">
+              <div class="item-line" data-line="x"></div>
+              <div class="item-line" data-line="y"></div>
+            </div>
+            <div class="item-content">
+              <h2 class="item-title">Shift5 Launches Advanced RF-Enabled GPS Threat Detection</h2>
+              <p class="item-date">January 7, 2026</p>
+              <p class="item-description">Next-generation capability delivers early warning of GPS threats up to 200 nautical miles away with plug-and-play deployment</p>
+            </div>
+          </a>
+
+          <a href="#" class="insight-item">
+            <div class="item-lines">
+              <div class="item-line" data-line="x"></div>
+              <div class="item-line" data-line="y"></div>
+            </div>
+            <div class="item-content">
+              <h2 class="item-title">Shift5 Named North American Technology Innovation Leader in Onboard OT Platforms</h2>
+              <p class="item-date">December 23, 2025</p>
+              <p class="item-description">Analyst firm recognizes Shift5's leadership in transforming hidden operational data into actionable insights.</p>
+            </div>
+          </a>
+
+          <a href="#" class="insight-item">
+            <div class="item-lines">
+              <div class="item-line" data-line="x"></div>
+              <div class="item-line" data-line="y"></div>
+            </div>
+            <div class="item-content">
+              <h2 class="item-title">Securing Classified Data-at-Rest with Shift5's NIAP-Certified Software</h2>
+              <p class="item-date">December 9, 2025</p>
+              <p class="item-description">In the era of software-defined defense, classified data generated by Department of War weapons system platforms is a strategic asset that must be safeguarded against adversary exploitation.</p>
+            </div>
+          </a>
+
+          <a href="#" class="insight-item">
+            <div class="item-lines">
+              <div class="item-line" data-line="x"></div>
+              <div class="item-line" data-line="y"></div>
+            </div>
+            <div class="item-content">
+              <h2 class="item-title">Forging a Resilient Future for American Aviation</h2>
+              <p class="item-date">November 21, 2025</p>
+              <p class="item-description">American aviation stands as a cornerstone of innovation and economic strength - yet it continues to face escalating cybersecurity challenges.</p>
+            </div>
+          </a>
+
+          <a href="#" class="insight-item">
+            <div class="item-lines">
+              <div class="item-line" data-line="x"></div>
+              <div class="item-line" data-line="y"></div>
+            </div>
+            <div class="item-content">
+              <h2 class="item-title">Shift5 Achieves NIAP Certification for Full Drive Encryption, Enabling Secure Deployment in Classified Environments</h2>
+              <p class="item-date">November 20, 2025</p>
+              <p class="item-description">First and only provider in its class to receive certification for devices capable of handling classified data at rest</p>
+            </div>
+          </a>
+
+          <a href="#" class="insight-item">
+            <div class="item-lines">
+              <div class="item-line" data-line="x"></div>
+              <div class="item-line" data-line="y"></div>
+            </div>
+            <div class="item-content">
+              <h2 class="item-title">Detecting Cyber Attacks on DoW Weapons System Platforms with Shift5's MIL-STD-1553 Detection Suite</h2>
+              <p class="item-date">October 31, 2025</p>
+              <p class="item-description">Shift5 has built the MIL-STD 1553 Detection Suite to equip military platforms to rapidly detect and respond to sophisticated serial bus attacks.</p>
+            </div>
+          </a>
+
+          <a href="#" class="insight-item">
+            <div class="item-lines">
+              <div class="item-line" data-line="x"></div>
+              <div class="item-line" data-line="y"></div>
+            </div>
+            <div class="item-content">
+              <h2 class="item-title">Shift5 Raises $75 Million Series C to Scale Operational Intelligence Platform</h2>
+              <p class="item-date">September 3, 2025</p>
+              <p class="item-description">Investment to accelerate deployment of technology that gives maintenance, operations, and cybersecurity teams visibility into fleet performance and security</p>
+            </div>
+          </a>
+
+          <a href="#" class="insight-item">
+            <div class="item-lines">
+              <div class="item-line" data-line="x"></div>
+              <div class="item-line" data-line="y"></div>
+            </div>
+            <div class="item-content">
+              <h2 class="item-title">Shift5, Avionica Partner to Deliver GPS Integrity Solutions to Commercial Aviation</h2>
+              <p class="item-date">June 26, 2025</p>
+              <p class="item-description">The announcement comes as GPS spoofing incidents worldwide surged by 500% in 2024, with 1,500 flights per day affected by GPS attacks</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+    <!-- ========== CTA / CONTACT SECTION ========== -->
+    <section class="contact-form">
+      <div class="content">
+        <div>
+          <h2 class="form-title">
+            <span>Ready to harness your </span>
+            <span>Op</span><span class="-slash">/</span><span>Intelligence?</span>
+          </h2>
+
+          <form class="form-container" method="POST" name="Contact form">
+            <div class="email-item">
+              <div class="email-content">
+                <svg role="presentation" class="icon left-paren"><use href="#left-parenthesis"></use></svg>
+                <div class="form-item">
+                  <label for="email_contact-form">Enter your email</label>
+                  <input class="form-email" placeholder="Enter your email" id="email_contact-form" type="email" name="email_contact-form" required>
+                </div>
+                <svg role="presentation" class="icon right-paren"><use href="#right-parenthesis"></use></svg>
+              </div>
+              <button class="email-button" type="button">Continue</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="contact-info">
+          <div class="border-top"></div>
+          <p class="info-label">Get in touch<br>to learn more.</p>
+          <div class="info-block">
+            <div class="info-item">
+              <p class="info-item-label">Phone</p>
+              <p class="info-item-value">+1 703 810 3320</p>
+            </div>
+          </div>
+          <div class="info-block">
+            <div class="info-item">
+              <p class="info-item-label">General Inquiries</p>
+              <a class="info-item-value" href="mailto:info@shift5.io">info@shift5.io</a>
+            </div>
+            <div class="info-item">
+              <p class="info-item-label">Press</p>
+              <a class="info-item-value" href="mailto:press@shift5.io">press@shift5.io</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="content">
+      <div class="newsletter-form">
+        <div class="newsletter">
+          <form method="POST" name="Newsletter">
+            <label class="form-label" for="email_newsletter">Sign up for updates</label>
+            <div class="input-row">
+              <input placeholder="Enter your email address" id="email_newsletter" type="email" name="email_newsletter" required>
+              <button class="form-submit" type="button">Subscribe</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-block">
+        <div class="block-content block-1">
+          <a href="index.html" class="footer-logo">
+            <svg role="presentation" class="icon"><use href="#footer-icon"></use></svg>
+          </a>
+          <ul class="footer-nav">
+            <li class="nav-item">
+              <a href="platform.html" class="item-link"><span>Platform</span></a>
+            </li>
+          </ul>
+          <ul class="footer-nav">
+            <li class="nav-item">
+              <h4 class="submenu-title">Solutions<sup>4</sup></h4>
+              <ul class="submenu-list">
+                <li class="submenu-item"><a class="item-link" href="#"><span>Cyber</span><span class="-slash">/</span><span>EW</span></a></li>
+                <li class="submenu-item"><a class="item-link" href="#"><span>Predictive Maintenance</span></a></li>
+                <li class="submenu-item"><a class="item-link" href="#"><span>Compliance</span></a></li>
+                <li class="submenu-item"><a class="item-link" href="#"><span>Research</span></a></li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="footer-nav">
+            <li class="nav-item">
+              <h4 class="submenu-title">About<sup>2</sup></h4>
+              <ul class="submenu-list">
+                <li class="submenu-item"><a class="item-link" href="#"><span>Company</span></a></li>
+                <li class="submenu-item"><a class="item-link" href="#"><span>Careers</span></a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="item-link"><span>Insights</span></a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="item-link"><span>Contact</span></a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="block-content block-2">
+          <div class="block-item">
+            <svg role="presentation"><use href="#flag"></use></svg>
+            <p>Forged in America. For America.</p>
+          </div>
+          <div class="block-item">
+            <p>Shift5 HQ<br>1100 Wilson Blvd,<br>Ste 2100<br>Rosslyn, VA 22209</p>
+          </div>
+        </div>
+
+        <div class="footer-copy copy-1">
+          <p class="copy-item">&copy;2026 Shift5, Inc.</p>
+          <a href="#" class="copy-item">Privacy Policy</a>
+          <a href="#" class="copy-item">Terms of Use</a>
+        </div>
+
+        <div class="footer-title">
+          <svg fill="none" viewBox="0 0 1280 250" preserveAspectRatio="xMinYMin meet" style="width:100%;height:auto;display:block">
+            <path fill="#FF5841" d="M1167.55 249.898c-66.87 0-109.08-30.731-111.78-76.658l56.06-.338c3.03 20.937 24.31 36.472 55.72 36.472 33.43 0 56.05-18.574 56.05-46.265 0-27.354-21.27-45.59-53.35-45.59-21.28 0-40.86 8.78-49.31 22.626h-60.78l9.79-133.392h200.93v40.524h-149.94l-4.72 60.786c13.5-15.196 39.51-25.327 70.91-25.327 56.4 0 92.87 31.744 92.87 80.373 0 54.032-42.21 86.789-112.45 86.789Zm-262.286-6.754V55.382H822.19V6.752h222.21v48.63h-83.077v187.762h-56.059Zm-302.508 0V6.753h196.542v49.08H658.814v40.974h89.378v53.469h-89.378v92.868h-56.058Zm-87.311 0V6.753h55.045v236.391h-55.045Zm-88.724 0v-92.868H316.067v92.868h-56.058V6.753h56.058v90.391h110.654V6.753h56.396v236.391h-56.396Zm-302.785 6.755c-74.97 0-122.923-34.108-123.936-88.14h54.708c1.35 30.055 27.691 45.927 70.579 45.927 34.446 0 55.045-9.455 55.045-27.354 0-14.858-12.832-24.314-36.134-27.353l-57.747-7.768c-45.59-5.74-76.995-29.379-76.995-69.904C9.456 28.705 50.656 0 116.507 0c68.553 0 111.441 32.082 113.13 83.412h-54.032c-1.351-27.691-24.653-41.875-60.111-41.875-31.744 0-50.993 9.794-50.993 27.692 0 14.52 11.82 23.301 33.095 26.34l53.694 6.754c59.773 7.768 86.114 37.823 86.114 73.957 0 46.603-43.901 73.619-113.468 73.619Z"></path>
+          </svg>
+        </div>
+      </div>
+
+      <div class="footer-copy copy-2">
+        <p class="copy-item">&copy;2026 Shift5, Inc.</p>
+        <a href="#" class="copy-item">Privacy Policy</a>
+        <a href="#" class="copy-item">Terms of Use</a>
+        <a href="#" class="copy-item">License Agreement</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="scripts/common.js"></script>
+  <script src="scripts/home.js"></script>
+</body>
+</html>
